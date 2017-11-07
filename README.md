@@ -2,15 +2,20 @@
 
 Git sequence reference 
 
-1) 
 first round: Shino
 $git status -> on master
 $ git checkout -b "feature/shino"
  Shino code,
 
+
 git add.
 git commit
 git push origin feature/shino
+
+1.I try to test
+2.I try to my best
+3.I can do it
+
 
 ----
 2)
