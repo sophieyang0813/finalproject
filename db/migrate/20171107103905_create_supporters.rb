@@ -6,6 +6,7 @@ class CreateSupporters < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :org_name
       t.string :org_type
+      t.string :town
       t.string :address
       t.string :phone_num
       t.string :password_digest

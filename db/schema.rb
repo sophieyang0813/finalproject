@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108083532) do
+ActiveRecord::Schema.define(version: 20171108151409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,36 +21,21 @@ ActiveRecord::Schema.define(version: 20171108083532) do
     t.string "email"
     t.string "charity_type"
     t.string "charity_name"
+    t.string "town"
     t.string "address"
     t.string "phone_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "password_digest"
-  end
-
-  create_table "deliveries", force: :cascade do |t|
-    t.bigint "charity_id"
-    t.datetime "pickup_date"
-    t.string "pickup_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["charity_id"], name: "index_deliveries_on_charity_id"
   end
 
-  create_table "foods", force: :cascade do |t|
-    t.bigint "delivery_id"
-    t.bigint "supporter_id"
-    t.string "name"
-    t.string "quantity"
+  create_table "posts", force: :cascade do |t|
     t.string "description"
-    t.string "food_type"
-    t.date "mfg_date"
-    t.date "expiry_date"
+    t.datetime "deadline_for_collection"
+    t.integer "supporter_id"
+    t.integer "charity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "photos"
-    t.index ["delivery_id"], name: "index_foods_on_delivery_id"
-    t.index ["supporter_id"], name: "index_foods_on_supporter_id"
   end
 
   create_table "supporters", force: :cascade do |t|
@@ -59,11 +44,12 @@ ActiveRecord::Schema.define(version: 20171108083532) do
     t.string "email"
     t.string "org_name"
     t.string "org_type"
+    t.string "town"
     t.string "address"
     t.string "phone_num"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
   end
 
 end
