@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  root "supporters#new"
+  root "sessions#new"
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index]
 
   resources :charities, controller: "charities", only: [:create, :new, :index]
+
+  resource :session, controller: "sessions", only: [:create, :new]
 
   # resource :session, controller: "clearance/sessions", only: [:create]
 
