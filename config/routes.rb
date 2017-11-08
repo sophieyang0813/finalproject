@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root "clearance/sessions#new"
+  
+  resources :deliveries, controller: "deliveries"
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
