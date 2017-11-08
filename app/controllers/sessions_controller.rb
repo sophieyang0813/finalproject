@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 
 
   def create 
-    @supporter = Supporter.find(params[:email])
-      if @supporter.password == params[:password]
-        redirect_to foods_path
+    @supporter = Supporter.find_by(email: params[:session][:email])
+      if @supporter && @supporter.authenticate(params[:session][:password])
+        redirect_to supporters_path
       else 
         redirect_to new_session_path
       end         
