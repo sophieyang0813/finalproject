@@ -35,25 +35,27 @@
   <%= form.text_field :food_type, type: 'food_type' %>
   </div>
 
-  <div>
+  <div class="date_field">
   <%= form.label :mfg_date %>
   <%= form.date_field :mfg_date %>
   </div>
 
-  <div>
+  <div class="date_field">
   <%= form.label :expiry_date %>
   <%= form.date_field :expiry_date %>
   </div>
 
-
+  <div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+  </div>
 
    <div class="submit-field">
       <%= form.submit %>
-    </div>
+   </div>
   
-
-
   </div>
+
 <% end %>
 
 
