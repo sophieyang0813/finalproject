@@ -1,2 +1,2 @@
-class Supporter < User
+class Supporter < ApplicationRecord
 end

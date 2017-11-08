@@ -1,2 +1,2 @@
-class Charity < User
+class Charity < ApplicationRecord
 end
