@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  root "supporters#new"
+  
+  root "sessions#new"
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index]
 
@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   resources :charities, controller: "charities", only: [:create, :new, :index]
 
+  resource :session, controller: "sessions", only: [:create, :new]
+
+  resources :deliveries, controller: "deliveries"
+ 
+  get "confirmation", to: :confirmation, controller: "deliveries"
+  
   # resource :session, controller: "clearance/sessions", only: [:create]
 
   # resources :users, controller: "clearance/users", only: [:create] do
