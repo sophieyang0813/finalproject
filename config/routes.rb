@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "supporters#new"
+  root "sessions#new"
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index]
 
