@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :charities, controller: "charities", only: [:create, :new, :index]
 
+  resource :session, controller: "sessions", only: [:create, :new]
+
   # resource :session, controller: "clearance/sessions", only: [:create]
 
   # resources :users, controller: "clearance/users", only: [:create] do
