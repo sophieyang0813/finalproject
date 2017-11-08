@@ -8,7 +8,7 @@ class CreateSupporters < ActiveRecord::Migration[5.1]
       t.string :org_type
       t.string :address
       t.string :phone_num
-
+      t.string :password_digest
       t.timestamps
     end
   end
