@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:edit,:update,:destroy]
 
   # GET /foods
   # GET /foods.json
@@ -69,6 +70,7 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.fetch(:food, {})
+     params.require(:food).permit(:name,:quantity,:description,:type,:mfg_date,:expiry_date)
+
     end
 end
