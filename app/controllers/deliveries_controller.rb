@@ -14,15 +14,16 @@ class DeliveriesController < ApplicationController
 	end
 
 	def show
-		@delivery= Delivery.find(param)
+		@delivery= current_delivery.foods
 	end
 
 	def index
 		render 'delivery/index'
 	end
+	def add
 
-	def update
-	end 
+
+	end
 
 	private
 	def delivery_params

@@ -8,6 +8,7 @@ class CreateCharities < ActiveRecord::Migration[5.1]
       t.string :charity_name 
       t.string :address
       t.string :phone_num
+      t.boolean :delivery?, default: true
 
       t.timestamps
     end

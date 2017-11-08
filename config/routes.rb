@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
 
-  root "clearance/sessions#new"
+ root "supporters#new"
   
   resources :deliveries, controller: "deliveries"
 
-  root "supporters#new"
-
+ 
+get "confirmation", to: :confirmation, controller: "deliveries"
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index]
 
