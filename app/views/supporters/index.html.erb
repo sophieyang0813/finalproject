@@ -1,0 +1,5 @@
+
+
+<% @supporters.order(created_at: :desc).each do |s| %> 
+   <%= s.first_name %> 
+ <% end %> 
