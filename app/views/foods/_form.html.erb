@@ -1,0 +1,61 @@
+<%= form_with(model: @food, local: true) do |form| %>
+  <% if @food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+      <ul>
+      <% @food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--   form   -->
+
+  <div class="actions">
+
+  <div class="text-field">
+  <%= form.label :name %>
+  <%= form.text_field :name, type: 'name' %>
+  </div>
+
+  <div class="text-field">
+  <%= form.label :quantity %>
+  <%= form.text_field :quantity, type: 'quantity' %>
+  </div>
+
+  <div class="text-field">
+  <%= form.label :description %>
+  <%= form.text_field :description, type: 'description' %>
+  </div>
+
+  <div class="text-field">
+  <%= form.label :type %>
+  <%= form.text_field :food_type, type: 'food_type' %>
+  </div>
+
+  <div class="date_field">
+  <%= form.label :mfg_date %>
+  <%= form.date_field :mfg_date %>
+  </div>
+
+  <div class="date_field">
+  <%= form.label :expiry_date %>
+  <%= form.date_field :expiry_date %>
+  </div>
+
+  <div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+  </div>
+
+   <div class="submit-field">
+      <%= form.submit %>
+   </div>
+  
+  </div>
+
+<% end %>
+
+

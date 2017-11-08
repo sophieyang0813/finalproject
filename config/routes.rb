@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index]
 
+
+
+  resources :foods
+
   resources :charities, controller: "charities", only: [:create, :new, :index]
 
   resource :session, controller: "sessions", only: [:create, :new]
