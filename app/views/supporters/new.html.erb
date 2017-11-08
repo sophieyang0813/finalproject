@@ -1,11 +1,22 @@
 
 
 <%= link_to "new charity", new_charity_path %>
+<%= link_to "sign in", new_session_path %>
 
 
 Supporters/new
 
 <%= form_for @supporter do |form| %>
+
+  <div>
+    <% form.label :email %>
+    <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
+  </div>
+
+  <div>
+    <% form.label :password %> 
+    <%= form.password_field :password, type: 'password', placeholder: 'Password' %> 
+  </div>
 
   <div>
     <% form.label :last_name %>
@@ -15,11 +26,6 @@ Supporters/new
   <div>
     <% form.label :first_name %>
     <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
-  </div>
-
-  <div>
-    <% form.label :email %>
-    <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
   </div>
 
   <div>
