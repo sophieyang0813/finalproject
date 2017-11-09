@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  resources :posts do
+    resources :orders, only: [:index, :new, :create]
+  end
+
+  resources :orders, only: [:show, :edit, :update, :destroy]
+
   resources :charities, controller: "charities", only: [:create, :new, :index]
 
   resource :session, controller: "sessions", only: [:create, :new]
