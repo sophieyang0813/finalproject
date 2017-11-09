@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
         if @user.class == Supporter
-          redirect_to supporters_path
+          redirect_to foods_path
         elsif @user.class == Charity
-           redirect_to charities_path
+           redirect_to foods_path
         end
       else
         redirect_to new_session_path
