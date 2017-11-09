@@ -9,7 +9,8 @@ class CharitiesController < ApplicationController
     @charity = Charity.new(charity_params)
 
     if @charity.save 
-      redirect_to charities_path
+      session[:user_id] = @charity.id
+      redirect_to posts_path
     else 
       render template: "charities/new"
     end 
@@ -19,7 +20,7 @@ class CharitiesController < ApplicationController
   private 
   
   def charity_params
-    params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :password)
+    params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :town, :password)
   end 
 
 end 

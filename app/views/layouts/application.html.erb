@@ -11,7 +11,128 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+
 <body>
+
+      <!-- navbar -->
+  <% if signed_in? %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <a href="/listings">
+              <%= image_tag "airbnb_logo_small.png", class: "navbar-brand" %>
+              </a>
+          </div>
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+
+                <div class="navbar-form navbar-left">
+                   <div class = "form-group">
+                    <%= form_tag ('/listings/search'), {method: :get} do  %>
+                    <%= text_field_tag :everything, '', class: 'srchbox' , placeholder: "Where would you like to go?" %>
+                   </div>
+                   <!--  <#%= submit_tag "" %> -->
+                    <% end %> 
+                </div>
+
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trip<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                   <li><%= link_to "Your trip", reservations_path %></li>
+                </ul>
+              </li>
+              <!-- <li><#%= link_to "Trip", listings_path %></li> -->
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Host<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><%= link_to "Discover hosting", new_listing_path %></li>
+                 <li><%= link_to "Reservations", user_path(current_user) %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><%= link_to "Update your profile", edit_user_path(current_user)  %></li> 
+                  <li role="separator" class="divider"></li>
+                  <!-- <li>Signed in as: <%= current_user.email %></li> -->
+                 <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+              </ul>
+            </li>              
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
+
+
+  <% else %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a href="/listings">
+              <%= image_tag "airbnb_logo_small.png", class: "navbar-brand" %>
+              </a>
+          </div>
+
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+            <div class="navbar-form navbar-left">
+              <div class="form-group">
+                    <%= form_tag ('/listings/search'), {method: :get} do  %>
+                    <%= text_field_tag :everything, '', class: 'srchbox' , placeholder: "Where would you like to go?" %>
+               </div>
+                    <% end %> 
+              </div>
+
+
+            <ul class="nav navbar-nav navbar-right">
+            <!--   <li><a href="#">Host</a></li> -->
+              <li><a href="#">Trip</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                   <li><%= link_to 'Sign in', sign_in_path %></li>
+                   <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+                </ul>
+            </li>
+              
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
+
+<% end %>
+
+
+
+
 	<%= yield %>
 </body>
 </html>
