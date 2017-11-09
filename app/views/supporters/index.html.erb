@@ -1,5 +1,25 @@
 
 
-<% @supporters.order(created_at: :desc).each do |s| %> 
-   <%= s.first_name %> 
- <% end %> 
+
+<% if current_user.posts.empty? %> 
+
+<h3>Many smiles are just click away.</h3>
+<h3>Join the community today!</h3>
+
+
+charity pictures (children, etc) <br>
+
+
+<% else %> 
+
+  <%current_user.posts.order(created_at: :desc).each do |x| %> 
+  <div>
+  <%= x.title %><br>
+  <%= x.deadline_for_collection.to_date %><br>
+  <%= x.description %> 
+  <%= link_to 'Update', edit_post_path(x) %><br>
+   <hr>
+  </div>
+  <% end %> 
+
+<% end %> 

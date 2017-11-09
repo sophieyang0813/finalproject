@@ -19,6 +19,9 @@ class SupportersController < ApplicationController
     @supporters = Supporter.all
   end 
 
+
+ 
+
   private 
 
   def supporter_params

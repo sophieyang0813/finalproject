@@ -10,15 +10,15 @@ class SessionsController < ApplicationController
     @user = Supporter.find_by(email: params[:session][:email]) || Charity.find_by(email: params[:session][:email]) 
 
     if @user && @user.authenticate(params[:session][:password])
-        session[:user_id] = @user.id
         if @user.class == Supporter
+          session[:user_id] = @user.id
           redirect_to posts_path
         elsif @user.class == Charity
            redirect_to posts_path
         end
-      else
-        redirect_to new_session_path
-      end         
+    else
+      redirect_to new_session_path
+    end         
 
 
       # if @supporter && @supporter.authenticate(params[:session][:password])
