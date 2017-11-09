@@ -3,7 +3,7 @@
 Order <br>
 
 
-<%= form_for @order, url: root_path, method: :get do |form| %>
+<%= form_for @order, url: post_orders_path , method: :post do |form| %>
 
 <div>
   <%= form.label :collection_time %>
