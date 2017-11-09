@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :foods
+  resources :posts
 
   resources :charities, controller: "charities", only: [:create, :new, :index]
 
