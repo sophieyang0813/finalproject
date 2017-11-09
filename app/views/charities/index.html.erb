@@ -1,1 +1,20 @@
-charity/index page 
+
+
+
+<% if current_user.orders.empty? %> 
+
+  <h3>We are here to support you!</h3>
+
+<% else %> 
+
+  <%current_user.orders.each do |x| %> 
+  <div>
+  <%= x.title %><br>
+  <%= x.deadline_for_collection.to_date %><br>
+  <%= x.description %> 
+  <%= link_to 'Update', edit_post_path(x) %><br>
+   <hr>
+  </div>
+  <% end %> 
+
+<% end %> 

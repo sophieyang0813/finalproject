@@ -7,7 +7,8 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>deadline_for_collection</th>
+      <th>Deadline for collection</th>
+      <th>Order</th>
     </tr>
   </thead>
 
@@ -17,12 +18,8 @@
     <tr>
      <td><%= post.title %></td>
      <td><%= post.description %></td>
-     <td><%= post.deadline_for_collection  %></td>
-
-      
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     <td><%= post.deadline_for_collection.to_date %></td>
+     <td><button>Submit</button></td>
       </tr>
     <% end %>
   </tbody>
