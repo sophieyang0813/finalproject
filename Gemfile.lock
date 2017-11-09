@@ -190,7 +190,6 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave (~> 1.0)
-
   coffee-rails (~> 4.2)
   figaro
   jbuilder (~> 2.5)

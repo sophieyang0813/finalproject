@@ -5,11 +5,11 @@ class CreateCharities < ActiveRecord::Migration[5.1]
       t.string :first_name
       t.string :email
       t.string :charity_type 
-      t.string :charity_name 
+      t.string :charity_name
+      t.string :town 
       t.string :address
       t.string :phone_num
-      t.boolean :delivery?, default: true
-
+      t.string :password_digest
       t.timestamps
     end
   end
