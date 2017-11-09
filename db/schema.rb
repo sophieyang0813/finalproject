@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108151409) do
+ActiveRecord::Schema.define(version: 20171109030939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,13 +29,22 @@ ActiveRecord::Schema.define(version: 20171108151409) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "charity_id"
+    t.datetime "collection_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "description"
     t.datetime "deadline_for_collection"
     t.integer "supporter_id"
-    t.integer "charity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.json "photos"
   end
 
   create_table "supporters", force: :cascade do |t|
