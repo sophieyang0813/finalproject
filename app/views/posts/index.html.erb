@@ -19,7 +19,7 @@
      <td><%= post.title %></td>
      <td><%= post.description %></td>
      <td><%= post.deadline_for_collection.to_date %></td>
-     <td><button>Submit</button></td>
+     <td><%= button_to 'Select', new_post_order_path(post), method: :get %></td>
       </tr>
     <% end %>
   </tbody>

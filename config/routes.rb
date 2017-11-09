@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
-
+  # resources :orders, controller: "orders" 
+  
   resources :posts
 
   resources :posts do
