@@ -1,3 +1,4 @@
 class Order < ApplicationRecord
-	belongs_to :post
+attr_accessor :collection_date, :collection_time
 end
+

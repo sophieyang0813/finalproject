@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   
   root "posts#index"
  
@@ -13,14 +14,19 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :new, :create, :show]
   end
 
+
   resources :charities, controller: "charities", only: [:create, :new, :index, :update]
 
   resource :session, controller: "sessions", only: [:create, :new, :destroy ]
 
-  resources :deliveries, controller: "deliveries"
+  resources :posts
+
+  resources :posts do
+   resources :orders, only: [:index, :new, :create, :show]
+ end
+
+ resources :order, only:[:show]
  
-  get "confirmation", to: :confirmation, controller: "deliveries"
-  
   # resource :session, controller: "clearance/sessions", only: [:create]
 
   # resources :users, controller: "clearance/users", only: [:create] do
