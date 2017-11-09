@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # before_action :require_login, only: [:edit,:update,:destroy]
 
   # GET /posts
   # GET /posts.json
@@ -69,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
+      params.require(:post).permit(:name,:quantity,:description,:food_type,:mfg_date,:expiry_date,photos: [])
     end
 end
