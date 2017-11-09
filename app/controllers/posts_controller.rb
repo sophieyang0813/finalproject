@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       if @post.save
 
         # Tell the UserMailer to send a welcome email after save
-        NewpostMailer.notification_email(@charity, @post.supporter.last_name, @post.id)
+        NewpostMailer.notification_email(@charity, @post.supporter.last_name, @post.id).deliver_later
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }

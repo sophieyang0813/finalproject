@@ -1,4 +1,4 @@
-class NewpostMailer < ApplicationMailer::Base
+class NewpostMailer < ApplicationMailer
 
 	# send to all charity
 
