@@ -11,7 +11,34 @@
     </div>
   <% end %>
 
+  <!--   form   -->
+
   <div class="actions">
-    <%= form.submit %>
+
+  <div class="text-field">
+  <%= form.label :titel %>
+  <%= form.text_field :title, type: 'title' %>
   </div>
+
+  <div class="text-field">
+  <%= form.label :description %>
+  <%= form.text_field :description, type: 'description' %>
+  </div>
+
+  <div class="date_field">
+  <%= form.label :deadline_for_collection %>
+  <%= form.date_field :deadline_for_collection %>
+  </div>
+
+  <div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+  </div>
+
+   <div class="submit-field">
+      <%= form.submit %>
+   </div>
+  
+  </div>
+
 <% end %>
