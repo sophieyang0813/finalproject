@@ -9,7 +9,7 @@ class SupportersController < ApplicationController
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save 
-      redirect_to supporters_path
+      redirect_to posts_path
     else
       render template: "supporters/new" 
     end 

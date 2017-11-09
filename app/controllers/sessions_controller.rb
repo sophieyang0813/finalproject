@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
         if @user.class == Supporter
-          redirect_to foods_path
+          redirect_to posts_path
         elsif @user.class == Charity
-           redirect_to foods_path
+           redirect_to posts_path
         end
       else
         redirect_to new_session_path
@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to foods_path
+    redirect_to posts_path
   end
 
 
