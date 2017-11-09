@@ -4,7 +4,7 @@ Rails.application.routes.draw do
  
   get '/myposts' => 'supporters#index'
 
-  resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show]
+  resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
 
   resources :posts
