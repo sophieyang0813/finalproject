@@ -30,13 +30,15 @@ class PostsController < ApplicationController
     @post.supporter_id = current_user.id 
 
     #test-email
-    @charity = "pairbnbtesttest@gmail.com"
+    # @charity = "pairbnbtesttest@gmail.com"
 
     respond_to do |format|
       if @post.save
 
         # Tell the UserMailer to send a welcome email after save
-        NewpostMailer.notification_email(@charity, @post.supporter.last_name, @post.id).deliver_later
+        Charity.all.each do |c| 
+          NewpostMailer.notification_email(c.email, @post.supporter.last_name, @post.id).deliver_later
+        end
 
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
