@@ -7,19 +7,18 @@ class SessionsController < ApplicationController
 
 
   def create 
-    @user = Supporter.find_by(email: params[:session][:email]) || Charity.find_by(email: params[:session][:email])
+    @user = Supporter.find_by(email: params[:session][:email]) || Charity.find_by(email: params[:session][:email]) 
 
     if @user && @user.authenticate(params[:session][:password])
+        session[:user_id] = @user.id
         if @user.class == Supporter
-          redirect_to supporters_path
+          redirect_to posts_path
         elsif @user.class == Charity
-           redirect_to charities_path
+           redirect_to posts_path
         end
       else
         redirect_to new_session_path
       end         
-
-
 
 
       # if @supporter && @supporter.authenticate(params[:session][:password])
@@ -42,6 +41,12 @@ class SessionsController < ApplicationController
 
   end 
 
+
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to posts_path
+  end
 
 
 

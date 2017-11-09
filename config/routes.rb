@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "sessions#new"
  
 
-  resources :supporters, controller: "supporters", only: [:create, :new, :index]
+  resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show]
 
 
 
@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :new, :create, :show]
   end
 
-  resources :charities, controller: "charities", only: [:create, :new, :index]
+  resources :charities, controller: "charities", only: [:create, :new, :index, :update]
 
-  resource :session, controller: "sessions", only: [:create, :new]
+  resource :session, controller: "sessions", only: [:create, :new, :destroy ]
 
   resources :deliveries, controller: "deliveries"
  
@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   #     only: [:create, :edit, :update]
   # end
 
-  # get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  # delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-  # get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get "/sign_in" => "sessions#new", as: "sign_in"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
+  # get "/sign_up" => "users#new", as: "sign_up"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
