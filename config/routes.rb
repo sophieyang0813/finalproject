@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :charities, controller: "charities", only: [:create, :new, :index, :update]
 
-  resource :session, controller: "sessions", only: [:create, :new]
+  resource :session, controller: "sessions", only: [:create, :new, :destroy ]
 
   resources :deliveries, controller: "deliveries"
  
