@@ -7,14 +7,16 @@
 
 <% else %> 
 
-  <%current_user.orders.each do |x| %> 
-  <div>
-  <%= x.title %><br>
-  <%= x.deadline_for_collection.to_date %><br>
-  <%= x.description %> 
-  <%= link_to 'Update', edit_post_path(x) %><br>
-   <hr>
-  </div>
+  <% current_user.orders.each do |x| %> 
+    <div>
+      <%= x.title %><br>
+      <%= x.deadline_for_collection.to_date %><br>
+      <%= x.description %> 
+      <%= link_to 'Update', edit_post_path(x) %><br>
+       <hr>
+    </div>
   <% end %> 
 
 <% end %> 
+
+
