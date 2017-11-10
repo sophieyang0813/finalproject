@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20171109030939) do
   create_table "orders", force: :cascade do |t|
     t.integer "post_id"
     t.integer "charity_id"
-    t.date "collection_day"
+    t.date "collection_date"
     t.string "collection_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
