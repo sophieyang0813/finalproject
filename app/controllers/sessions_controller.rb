@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
 
   def create 
+
     @user = Supporter.find_by(email: params[:session][:email]) || Charity.find_by(email: params[:session][:email]) 
 
     if @user && @user.authenticate(params[:session][:password])
