@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    
     @post = Post.new(post_params)
     @post.supporter_id = current_user.id 
 
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
           NewpostMailer.notification_email(c.email, @post.supporter.last_name, @post.id).deliver_later
         end
 
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to (posts_url) }
         format.json { render :show, status: :created, location: @post }
 
 
