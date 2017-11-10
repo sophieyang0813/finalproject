@@ -3,7 +3,8 @@ class CreateOrders < ActiveRecord::Migration[5.1]
     create_table :orders do |t|
     	t.integer :post_id
     	t.integer :charity_id
-    	t.datetime :collection_time
+    	t.date :collection_day
+    	t.string :collection_time
       t.timestamps
     end
   end

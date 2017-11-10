@@ -29,10 +29,20 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.supporter_id = current_user.id 
 
+    #test-email
+    # @charity = "pairbnbtesttest@gmail.com"
+
     respond_to do |format|
       if @post.save
+
+        # Tell the UserMailer to send a welcome email after save
+        Charity.all.each do |c| 
+          NewpostMailer.notification_email(c.email, @post.supporter.last_name, @post.id).deliver_later
+        end
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+
 
       else
         format.html { render :new }
@@ -73,6 +83,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name,:deadline_for_collection,:description, :title, photos: [])
+      params.require(:post).permit(:title,:deadline_for_collection,:description, photos: [])
     end
 end

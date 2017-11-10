@@ -6,6 +6,8 @@ class SupportersController < ApplicationController
   end 
 
   def create 
+    # byebug
+    
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save 
