@@ -1,16 +1,16 @@
 class OrdersController < ApplicationController
 	def new
 		@order= Order.new
+		@post= Post.find(params[:post_id])
 	end
 
 	def create
-		# @order= current_charity.orders.new
-		(order_params)
-		# if @order.save
-		# 	redirect_to post_order_path
-		# else
-		# 	render 'new'
-		# end
+		@order= current_user.orders.new(order_params)
+		if @order.save
+			redirect_to @order
+		else
+			render 'new'
+		end
 	end
 
 	def show
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
 	def order_params
 
-		params.permit(:post_id, :charity_id, :collection_date, :collection_time)
+		params.require(:order).permit(:post_id, :charity_id, :collection_date, :collection_time)
 
 	end
 

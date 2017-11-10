@@ -1,11 +1,11 @@
-<h3>You have picked 
-... please choose time and date you would like to pick your item</h3>
+<h3>You have picked <%=@post.title %> and date you would like to pick your item</h3>
 <%= form_for @order , url: post_orders_path do |form| %>
 
 <!-- <input type="hidden" name="collection_date" id="collection_date" />
 <input type="hidden" name="collection_time" id="collection_time" /> -->
-<%= form.text_field :collection_time %>
 <%= form.text_field :collection_date %>
+<%= form.text_field :collection_time %>
+
 
 
 <div style="overflow:hidden;">

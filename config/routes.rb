@@ -2,31 +2,27 @@ Rails.application.routes.draw do
 
   
   root "posts#index"
- 
+  
   get '/myposts' => 'supporters#index'
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
+  resources :charities, controller: "charities", only: [:create, :new, :index, :update]
 
   resources :posts
 
   resources :posts do
     resources :orders, only: [:index, :new, :create, :show]
   end
-
-
-  resources :charities, controller: "charities", only: [:create, :new, :index, :update]
+  
+  resources :order, only:[:show]
 
   resource :session, controller: "sessions", only: [:create, :new, :destroy ]
 
-  resources :posts
 
-  resources :posts do
-   resources :orders, only: [:index, :new, :create, :show]
- end
 
- resources :order, only:[:show]
- 
+
+  
   # resource :session, controller: "clearance/sessions", only: [:create]
 
   # resources :users, controller: "clearance/users", only: [:create] do
