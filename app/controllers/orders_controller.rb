@@ -5,9 +5,14 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+		
+		@post= Post.find(params[:post_id])
 		@order= current_user.orders.new(order_params)
+		@order.post_id = @post.id
 		if @order.save
-			redirect_to @order
+			redirect_to posts_url
+
+		   @post.update(ordered_post: true)
 		else
 			render 'new'
 		end

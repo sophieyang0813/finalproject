@@ -37,9 +37,9 @@ class PostsController < ApplicationController
       if @post.save
 
         # Tell the UserMailer to send a welcome email after save
-        Charity.all.each do |c| 
-          NewpostMailer.notification_email(c.email, @post.supporter.last_name, @post.id).deliver_later
-        end
+        # Charity.all.each do |c| 
+          NewpostMailer.notification_email('pairbnbtesttest@gmail.com', @post.supporter.last_name, @post.id).deliver_later
+        # end
 
         format.html { redirect_to (posts_url), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :created, location: @post }
