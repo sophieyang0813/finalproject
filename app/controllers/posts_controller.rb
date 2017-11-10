@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    
+
     @post = Post.new(post_params)
     @post.supporter_id = current_user.id 
 
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
           NewpostMailer.notification_email(c.email, @post.supporter.last_name, @post.id).deliver_later
         end
 
-        format.html { redirect_to (posts_url) }
+        format.html { redirect_to (posts_url), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :created, location: @post }
 
 
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to (posts_url), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
