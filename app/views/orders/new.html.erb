@@ -1,4 +1,7 @@
 
+<h3>You have picked <%=@post.title %></h3> 
+<h3>When do you like to pick it up?</h3>
+
 <%= form_for @order , url: post_orders_path do |form| %>
 
 <!-- <input type="hidden" name="collection_date" id="collection_date" />
@@ -16,6 +19,7 @@
 			</div>
 		</div>
 	</div>
+
 	<script type="text/javascript">
 		$(function () {
 			$('#datetimepicker12').datetimepicker({
