@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
 
 	def create
 		@order= current_user.orders.new(order_params)
-    @order.post_id = params[:post_id]
     @order.charity_id = current_user.id
 
 		if @order.save
@@ -25,7 +24,7 @@ class OrdersController < ApplicationController
 
 	def order_params
 
-		params.require(:order).permit(:collection_date, :collection_time)
+		params.require(:order).permit(:post_id, :collection_date, :collection_time)
 
 	end
 
