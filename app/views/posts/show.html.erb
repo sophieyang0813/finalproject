@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<% if @post.photos?  %>
+	 <!-- The slideshow -->
+	    <div class="carousel-inner">
+	          <div class="item active">
+	            <%= image_tag @post.photos[0] %>
+	          </div>
+	    </div>
+    <% else %>
+<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+  <!-- Left and right controls -->
+
+
+
+<div class="listing_information">
+		<div class="caption">
+		<p>Title/<td><%= @post.title %></td></p>
+		<p>Description/<td><%= @post.description %></td></p>
+		<p>Deadline_for_collection/<td><%= @post.deadline_for_collection %></td></p>
+		</div>
+</div>
+
+
 <%= link_to 'Back', posts_path %>

@@ -5,7 +5,10 @@ class OrdersController < ApplicationController
 	end
 
 	def create
+		
+		@post= Post.find(params[:post_id])
 		@order= current_user.orders.new(order_params)
+
 		@order.post_id= params[:post_id]
 
 		if @order.save
@@ -14,6 +17,7 @@ class OrdersController < ApplicationController
 			NewOrderMailer.order_email_to_supporter(@order.charity_id, @order.id, @order.post.supporter.id).deliver_later
 
 			redirect_to post_order_path(@order.post_id, @order.id)
+        @post.update(ordered_post: true)
 
 		else
 			render 'new'
