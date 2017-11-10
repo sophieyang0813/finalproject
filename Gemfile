@@ -14,6 +14,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'##datepicker
 #This gem provides a simple and extremely flexible way to upload files from Ruby applications.
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
+gem 'fog'
 
 gem 'bcrypt', '~> 3.1.11'
 gem 'figaro'

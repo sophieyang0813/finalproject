@@ -1,0 +1,11 @@
+<h3>index of orders</h3>
+<p>
+
+<%= current_user.orders.post.each do |x| %>
+<%= x.title %><br>
+<%= x.description %><br>
+<%= x.deadline_for_collection %>
+
+</p>
+<% end %>
+

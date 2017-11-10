@@ -1,39 +1,61 @@
+<div class = "container">
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
 
-<table class= "table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Deadline for collection</th>
-      <th>Available pickup time</th>
-      <th>Order</th>
-    </tr>
-  </thead>
+<div class="all_listings">
 
-  <tbody>
+  <div  id="tourpackages-carousel">
+    <% @posts.each_slice(3) do |posts| %>
+    
+        
+      <div class="row">
+        <% posts.each do |post| %>
 
-    <% @posts.each do |post| %>
-    <tr>
-     <td><%= post.title %></td>
-     <td><%= post.description %></td>
-     <td><%= post.deadline_for_collection.to_date %></td>
-     <td><%= post.pickup_start.strftime("%H:%M") %> - <%= post.pickup_end.strftime("%H:%M") %></td>
-     <td><a href="/posts/<%= post.id %>/orders/new">Order</a></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% if post.ordered_post == false %>
+        <section class="col-xs-18 col-sm-6 col-md-4">
+          <div class="thumbnail">
+          
+                      <% if post.photos? %> 
+                          <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
+                      <% else %>
+                          <%= link_to (image_tag '242200.png',:class => "thum" ),post_path(post)%>  
+                      <% end %>
+
+                      <div class="caption">
+                      <p>orderd/<td><%= post.ordered_post %></td></p>
+                      <p>Title/<td><%= post.title %></td></p>
+                      <p>Description/<td><%= post.description %></td></p>
+                      <p>Deadline_for_collection/<td><%= post.deadline_for_collection %></td></p>
+                      <a href="/posts/<%= post.id %>/orders/new">Order</a>
+                          
+                      </div>
+                    </div>
+        </section>
+         <% else %>
+         <% end %>
+        <% end %>
+
+
+
+
+                </div><!-- End row -->
+               
+
+ <% end %>
+
+   
+
+    </div><!-- End container -->
+
+
+  </div>
+
+
+
+
 
 <br>
 
 
-
-<% if current_user.class == Supporter %>
-
-<%= link_to 'New Post', new_post_path %>
-
-<% else %>
-<% end %>
+</div>

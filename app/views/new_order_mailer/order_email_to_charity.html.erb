@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+	<h1>Congratulations! We have reserved <%= @post.title %> for you</h1>
+	<p>
+		You can see details of new order here: <%= post_order_url(@post, @order) %>
+		<p>
+			You would like to pick up your food on <%= @order.collection_date %> at <%= @order.collection_time %>.
+			If you would like to change the collection date and time, you can contact the supporter: <%= @supporter.email %> or <%=@supporter.phone_num %>
+		</p>
+	</p>
+</body>
+</html>

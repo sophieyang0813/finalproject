@@ -9,8 +9,9 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+ 
+ActiveRecord::Schema.define(version: 20171110081855) do
 
-ActiveRecord::Schema.define(version: 20171110032226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +33,8 @@ ActiveRecord::Schema.define(version: 20171110032226) do
   create_table "orders", force: :cascade do |t|
     t.integer "post_id"
     t.integer "charity_id"
-    t.datetime "collection_time"
+    t.date "collection_date"
+    t.string "collection_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 20171110032226) do
     t.json "photos"
     t.datetime "pickup_start" 
     t.datetime "pickup_end"
+    t.boolean "ordered_post", default: false, null: false
+
   end
 
   create_table "supporters", force: :cascade do |t|
