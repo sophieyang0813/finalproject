@@ -5,32 +5,49 @@
 
 <div class="all_listings">
 
+
+
   <div  id="tourpackages-carousel">
     <% @posts.each_slice(3) do |posts| %>
+    
         
       <div class="row">
         <% posts.each do |post| %>
-        
+
+        <% if post.ordered_post == false %>
         <section class="col-xs-18 col-sm-6 col-md-4">
           <div class="thumbnail">
-            <% if post.photos? %> 
-                <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
-            <% else %>
-                <%= link_to (image_tag '242200.png',:class => "thum" ),post_path(post)%>  
-            <% end %>
+          
+                      <% if post.photos? %> 
+                          <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
+                      <% else %>
+                          <%= link_to (image_tag '242200.png',:class => "thum" ),post_path(post)%>  
+                      <% end %>
 
-            <div class="caption">
-            <p>Title/<td><%= post.title %></td></p>
-            <p>Description/<td><%= post.description %></td></p>
-            <p>Deadline_for_collection/<td><%= post.deadline_for_collection %></td></p>
-            <a href="/posts/<%= post.id %>/orders/new">Order</a>
-                
-            </div>
-          </div>
+                      <div class="caption">
+                      <p>orderd/<td><%= post.ordered_post %></td></p>
+                      <p>Title/<td><%= post.title %></td></p>
+                      <p>Description/<td><%= post.description %></td></p>
+                      <p>Deadline_for_collection/<td><%= post.deadline_for_collection %></td></p>
+                      <a href="/posts/<%= post.id %>/orders/new">Order</a>
+                          
+                      </div>
+                    </div>
         </section>
+         <% else %>
+         <% end %>
         <% end %>
-      </div><!-- End row -->
-     <% end %>
+
+
+
+
+                </div><!-- End row -->
+               
+
+ <% end %>
+
+   
+
     </div><!-- End container -->
 
 
