@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20171110081855) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.json "photos"
-    t.boolean "ordered_post", default: false, null: false
     t.datetime "pickup_start"
     t.datetime "pickup_end"
+    t.boolean "ordered_post", default: false, null: false
   end
 
   create_table "supporters", force: :cascade do |t|

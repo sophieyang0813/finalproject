@@ -11,7 +11,7 @@ class SupportersController < ApplicationController
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save
-      session[:user_id] = @user_id
+      session[:user_id] = @supporter.id
       redirect_to posts_path
     else
       render template: "supporters/new" 
