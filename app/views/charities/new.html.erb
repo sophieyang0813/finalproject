@@ -1,58 +1,5 @@
-Charities/new
+<%= render 'form'%>
 
-<%= form_for @charity do |form| %>
-
-<div>
-  <% form.label :email %>
-  <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
-</div>
-
-<div>
-  <% form.label :password %> 
-  <%= form.password_field :password, type: 'password', placeholder: 'Password' %> 
-</div>
-
-
-<div>
-  <% form.label :last_name %>
-  <%= form.text_field :last_name, type: 'last_name', placeholder: 'Last name' %>
-</div>
-
-<div>
-  <% form.label :first_name %>
-  <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
-</div>
-
-<div>
-  <% form.label :charity_type %>
-  <%= form.text_field :charity_type, type: 'charity_type', placeholder: 'Charity type' %>
-</div>
-
-<div>
-  <% form.label :charity_name %>
-  <%= form.text_field :charity_name, type: 'charity_name', placeholder: 'charity_name' %>
-</div>
-
-<div>
-  <% form.label :town %>
-  <%= form.text_field :town, type: 'town', placeholder: 'Town' %>
-</div>
-
-<div>
-  <% form.label :address %>
-  <%= form.text_field :address, type: 'address', placeholder: 'Address' %>
-</div>
-
-<div>
-  <% form.label :phone_num %>
-  <%= form.text_field :phone_num, type: 'phone_num', placeholder: 'Phone number' %>
-</div>
-
-<div>
-  <%= form.submit "Join" %>
-</div>
-
-<% end %>
 
 <% if @charity.errors.any? %> 
   <div id="error_explanation">
@@ -67,12 +14,4 @@ Charities/new
 <% end %>
 
 <%= link_to "new supporter", new_supporter_path %><br>
-
-
-
-
-
-
-
-
-
+<%= link_to "sign in", new_session_path %>

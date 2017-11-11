@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 		
 		@post= Post.find(params[:post_id])
 		@order= current_user.orders.new(order_params)
+
     @order.charity_id = current_user.id
 		@order.post_id= params[:post_id]
 
@@ -33,6 +34,7 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
+
 
 		params.require(:order).permit(:collection_date, :collection_time)
 

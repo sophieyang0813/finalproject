@@ -3,6 +3,7 @@
 
 <h1>Posts</h1>
 
+
 <div class="all_listings">
 
   <div  id="tourpackages-carousel">
@@ -12,14 +13,14 @@
       <div class="row">
         <% posts.each do |post| %>
 
-        <% if post.ordered_post == false %>
+        <% if post.ordered_post == false &&   post.deadline_for_collection >( Time.now - (60*60*24))  %>
         <section class="col-xs-18 col-sm-6 col-md-4">
           <div class="thumbnail">
           
                       <% if post.photos? %> 
                           <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
                       <% else %>
-                          <%= link_to (image_tag '242200.png',:class => "thum" ),post_path(post)%>  
+                          <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
                       <% end %>
 
                       <div class="caption">
@@ -27,7 +28,8 @@
                       <p>Title | <td><%= post.title %></td></p>
                       <p>Description | <td><%= post.description %></td></p>
                       <p>Pickup before | <td><%= post.deadline_for_collection.to_date %></td></p>
-                      <p>Pickup between | <%=post.pickup_start.strftime("%H:%M") %> - <%= post.pickup_end.strftime("%H:%M") %></p>
+
+                   
 
 
 
