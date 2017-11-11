@@ -45,6 +45,11 @@
   <%= form.text_field :phone_num, type: 'phone_num', placeholder: 'Phone number' %>
 </div>
 
+<div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+</div>
+
 <div>
   <%= form.submit "Update" %>
 </div>
