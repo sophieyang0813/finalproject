@@ -19,16 +19,23 @@
                       <% if post.photos? %> 
                           <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
                       <% else %>
-                          <%= link_to (image_tag '242200.png',:class => "thum" ),post_path(post)%>  
+                          <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
                       <% end %>
 
                       <div class="caption">
-                      <p>orderd/<td><%= post.ordered_post %></td></p>
-                      <p>Title/<td><%= post.title %></td></p>
-                      <p>Description/<td><%= post.description %></td></p>
-                      <p>Deadline_for_collection/<td><%= post.deadline_for_collection %></td></p>
+                      <p>ordered | <td><%= post.ordered_post %></td></p>
+                      <p>Title | <td><%= post.title %></td></p>
+                      <p>Description | <td><%= post.description %></td></p>
+                      <p>Pickup before | <td><%= post.deadline_for_collection.to_date %></td></p>
+                      <p>Pickup between | <%=post.pickup_start.strftime("%H:%M") %> - <%= post.pickup_end.strftime("%H:%M") %></p>
+
+
+
+
+                      <% if current_user.class == Charity %> 
                       <a href="/posts/<%= post.id %>/orders/new">Order</a>
-                          
+                      <% end %>     
+
                       </div>
                     </div>
         </section>

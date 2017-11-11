@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
-  resources :charities, controller: "charities", only: [:create, :new, :index, :update]
-
+  resources :charities, controller: "charities", only: [:create, :new, :index, :update ,:show, :edit]
 
   resources :posts
 
