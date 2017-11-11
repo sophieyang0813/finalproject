@@ -14,6 +14,9 @@ class SupportersController < ApplicationController
       session[:user_id] = @supporter.id
       redirect_to posts_path
     else
+      # flash[:notice] = @supporter.errors.messages[:email]
+      # flash[:notice] = @supporter.errors.details[:email]
+      # flash[:notice] = @supporter.errors.messages[:password]
       render template: "supporters/new" 
     end 
   end 
