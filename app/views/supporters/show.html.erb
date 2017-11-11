@@ -1,0 +1,52 @@
+
+<!-- Supporters/information-->
+<div class="container">    
+      <div class="row">
+          <div class="panel panel-default">
+              <div class="panel-body">
+
+                    </div>
+                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                        <div class="container" >
+                    
+                            <div class="container details" >
+	                             <p><h4><%= @supporter.first_name %> <%= @supporter.last_name %></h4><p>
+	                             <p>
+	                                <strong>Organization name:</strong>
+	                                <%= @supporter.org_name %>
+	                             </p>
+
+	                            <p>
+	                                <strong>Organization type:</strong>
+	                                <%= @supporter.org_type %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Town:</strong>
+	                                <%= @supporter.town %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Address:</strong>
+	                                <%= @supporter.address %>
+	                            </p>
+
+
+	                            <p>
+	                                <strong>Email:</strong>
+	                                <%= @supporter.email %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Phone number:</strong>
+	                                <%= @supporter.phone_num %>
+	                            </p>
+                            </div>
+                            <!-- edit user's profile-->
+                        </div>
+                      <%= link_to "Edit?", edit_supporter_path %>
+                     </div>
+              </div>
+          </div>
+      </div>
+ </div>
