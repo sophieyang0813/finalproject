@@ -31,7 +31,10 @@
 	<script
 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Caveat|Gloria+Hallelujah|Julius+Sans+One|Libre+Barcode+39+Text|Lobster+Two|Pacifico|Patua+One|Quicksand|Sacramento|Satisfy|Shadows+Into+Light|Varela+Round" rel="stylesheet"> 
 
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Libre+Baskerville" rel="stylesheet">
 </head>
 
 
@@ -41,7 +44,7 @@
       <!-- navbar -->
 
   <% if current_user.class == Supporter %> 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" style="background-color: #fbfbfb;">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -51,17 +54,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Brand</a>
+          <a class="navbar-brand barcodefont" href="/" style ="font-size: xx-large">Food|Love|Share</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
            <!--  <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li> -->
             <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
            <!--  <li><#%= link_to 'Awareness', contents_path %></li> -->
-            <li><a href="#">Community | Story </a></li>
-            <li><a href="#">Love | Share </a></li>
+            <li><%= link_to 'Community | Story', content_path %></li>
+            <li><%= link_to 'Love | Share', posts_path %></li>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -103,18 +106,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Brand</a>
+        <a class="navbar-brand barcodefont" href="/" style ="font-size: xx-large">Food|Love|Share</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
            <!--  <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li> -->
             <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
            <!--  <li><#%= link_to 'Awareness', contents_path %></li> -->
-            <li><a href="#">Community | Story </a></li>
-            <li><a href="#">Love | Share </a></li>
-          </ul>
+            <li><%= link_to 'Community | Story', content_path %></li>
+            <li><%= link_to 'Love | Share', posts_path %></li>
+         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Sharing is Caring!">
@@ -158,17 +161,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Brand</a>
+         <a class="navbar-brand barcodefont" href="/" style ="font-size: xx-large">Food|Love|Share</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-           <!--  <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li> -->
             <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
            <!--  <li><#%= link_to 'Awareness', contents_path %></li> -->
-            <li><a href="#">Community | Story </a></li>
-            <li><a href="#">Love | Share </a></li>
+            <!-- <li><#%= link_to 'Community | Story', content_path %></li> -->
+            <li><%= link_to 'Love | Share', posts_path %></li>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -202,6 +204,6 @@
 
 
 	<%= yield %>
- session id? <%= session[:user_id] %>
+<!--  session id? <#%= session[:user_id] %> -->
 </body>
 </html>

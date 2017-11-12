@@ -17,3 +17,43 @@
  .container {
  	width: 80%;
  }
+
+body {
+  font-family: 'Comfortaa', cursive;
+}
+
+.barcodefont {
+  font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+
+
+.qsfont {
+  font-family: 'Quicksand', sans-serif;
+   // font-family: 'Varela Round', sans-serif;
+  // font-family: 'Sacramento', cursive;
+  // font-family: 'Comfortaa', cursive;
+}
+
+
+.bcfontsm {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  display:inline;
+   font-size: 20px;
+
+}
+.inline {
+   display:inline;
+   font-size: 18px;
+}
+
+
+.txtcenter {
+  text-align: center;
+}
+
+.fontgrey {
+  color: #00000047; 
+}
+
+

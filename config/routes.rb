@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get '/myposts' => 'supporters#index'
   get '/myorders' => 'charities#index'
+  # get '/hello' => 'contents#hello'
 
   resources :contents, controller: "contents", only: [:index, :show]
 
