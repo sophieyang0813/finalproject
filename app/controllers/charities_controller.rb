@@ -2,25 +2,15 @@ class CharitiesController < ApplicationController
 
  before_action :set_charity, only: [:show,:edit,:update,:orders]
 
-
  def new
   @charity = Charity.new
   @states = state_options
 end
 
-  def create 
-    @charity = Charity.new(charity_params)
-
 def create 
   @charity = Charity.new(charity_params)
 
-  end 
-
-  private 
-  
-  def charity_params
-    params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :town, :password)
-  end 
+end 
 
 def show
 end
@@ -28,7 +18,6 @@ end
 def edit
   @states = state_options
 end
-
 
 def update
   if @charity.update(charity_params)
@@ -47,7 +36,7 @@ end
 private 
 
 def charity_params
-  params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :town, :password, photos: [])
+  params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :state, :town, :password, photos: [])
 end 
 
 def set_charity
