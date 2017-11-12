@@ -2,15 +2,15 @@
 
 
 <% if @charity.errors.any? %> 
-  <div id="error_explanation">
-    <h3><%= pluralize(@charity.errors.count, "error") %>:</h3>
- 
-    <ul>
-    <% @charity.errors.full_messages.each do |msg| %>
-      <li> <%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<div id="error_explanation">
+	<h3><%= pluralize(@charity.errors.count, "error") %>:</h3>
+
+	<ul>
+		<% @charity.errors.full_messages.each do |msg| %>
+		<li> <%= msg %></li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
 
 <%= link_to "new supporter", new_supporter_path %><br>

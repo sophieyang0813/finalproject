@@ -1,47 +1,58 @@
 <%= form_for @charity do |form| %>
 
 <div>
-  <% form.label :email %>
+
+  <%= form.label :email %>
+
   <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
 </div>
 
 <div>
-  <% form.label :password %> 
+
+  <%= form.label :password %> 
   <%= form.password_field :password, type: 'password', placeholder: 'Password' %> 
 </div>
 
+
 <div>
-  <% form.label :last_name %>
+  <%= form.label :last_name %>
   <%= form.text_field :last_name, type: 'last_name', placeholder: 'Last name' %>
 </div>
 
 <div>
-  <% form.label :first_name %>
+
+  <%= form.label :first_name %>
   <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
 </div>
 
 <div>
-  <% form.label :charity_name  %>
+  <%= form.label :charity_name  %>
   <%= form.text_field :charity_name, type: 'charity_name', placeholder: 'Charity name' %>
 </div>
 
 <div>
-  <% form.label :charity_type %>
+  <%= form.label :charity_type %>
   <%= form.text_field :charity_type, type: 'charity_type', placeholder: 'Charity type' %>
 </div>
 
 <div>
-  <% form.label :town %>
-  <%= form.text_field :town, type: 'town', placeholder: 'Town' %>
+
+ <%= form.label "State" %>
+ <%= form.select(:state , options_for_select(@states), {include_blank: true}) %>
 </div>
 
 <div>
-  <% form.label :address %>
+  <%= form.label :town %>
+  <%= form.select(:town, options_for_select([['Please choose state', '']])) %>
+</div>
+
+<div>
+  <%= form.label :address %>
   <%= form.text_field :address, type: 'address', placeholder: 'Address' %>
 </div>
 
 <div>
-  <% form.label :phone_num %>
+  <%= form.label :phone_num %>
   <%= form.text_field :phone_num, type: 'phone_num', placeholder: 'Phone number' %>
 </div>
 
@@ -55,3 +66,75 @@
 </div>
 
 <% end %>
+
+
+
+<div id="city_list" class="hide">
+  <%= Malaysia.cities.to_json %>
+</div>
+
+<script>
+  $(document).ready(function() {
+
+    // Prepare list of cities from JSON
+    var cities = JSON.parse($('#city_list').text());
+
+    // Set towns when state is selected
+    $('#charity_state').on('change', function() {
+      var current_state = this.value;
+      setTowns(cities, current_state);
+    });
+
+    // Set towns for initial state
+    setTowns(cities, '');
+  });
+
+  function setTowns(cities, state) {
+
+    // Remove any previous options
+    $('#charity_town').empty();
+
+    // If a valid state has been selected
+    if (state.length > 0) { 
+
+      // Enable the town select
+      $('#charity_town').removeAttr('disabled');
+
+      // Add an empty option with instructions
+      $('#charity_town').append(
+        $('<option>', {
+          value: '',
+          text: 'Please choose city'
+        }));
+
+      // Add the options for the selected state
+      $.each(cities[state], function (index, city) {
+
+        // Skip the "All" option
+        if (city !== 'All') {
+          $('#charity_town').append(
+            $('<option>', {
+              value: city,
+              text: city
+            }));
+        };
+      });
+
+    } else { // If no state has been selected
+
+      // Disable town select because state has not been chosen yet
+      $('#charity_town').attr('disabled', 'disabled');
+
+      // Add an empty option with instructions
+      $('#charity_town').append(
+        $('<option>', {
+          value: '',
+          text: 'Please choose state'
+        }));
+    }
+  }
+
+</script>
+
+
+
