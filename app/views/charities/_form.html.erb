@@ -1,11 +1,14 @@
 <%= form_for @charity do |form| %>
 
 <div>
+
   <%= form.label :email %>
+
   <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
 </div>
 
 <div>
+
   <%= form.label :password %> 
   <%= form.password_field :password, type: 'password', placeholder: 'Password' %> 
 </div>
@@ -17,6 +20,7 @@
 </div>
 
 <div>
+
   <%= form.label :first_name %>
   <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
 </div>
@@ -32,6 +36,7 @@
 </div>
 
 <div>
+
  <%= form.label "State" %>
  <%= form.select(:state , options_for_select(@states), {include_blank: true}) %>
 </div>
@@ -51,9 +56,17 @@
   <%= form.text_field :phone_num, type: 'phone_num', placeholder: 'Phone number' %>
 </div>
 
+<div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+</div>
 
+<div>
+  <%= form.submit "Update" %>
+</div>
 
 <% end %>
+
 
 
 <div id="city_list" class="hide">
@@ -122,3 +135,6 @@
   }
 
 </script>
+
+
+

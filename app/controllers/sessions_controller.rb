@@ -15,9 +15,11 @@ class SessionsController < ApplicationController
           session[:user_id] = @user.id
           redirect_to posts_path
         elsif @user.class == Charity
+          session[:user_id] = @user.id
            redirect_to posts_path
         end
     else
+      # flash[:danger] = 'Please check again'
       redirect_to new_session_path
     end         
 
@@ -46,7 +48,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    # flash[:notice] = "You have successfully logged out."
+
+
+    redirect_to root_path, :flash => { :success => "logged out successfully!"}
+
+
   end
 
 

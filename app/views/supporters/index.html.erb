@@ -15,7 +15,7 @@ charity pictures (children, etc) <br>
   <%current_user.posts.order(created_at: :desc).each do |x| %> 
   <div>
   <%= x.title %><br>
-  <%= x.deadline_for_collection %><br>
+  <%= x.deadline_for_collection.to_date %><br>
   <%= x.description %> 
   <%= link_to 'Update', edit_post_path(x) %><br>
    <hr>

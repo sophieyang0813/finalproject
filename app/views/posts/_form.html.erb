@@ -37,7 +37,7 @@
 
 
   <strong>Available time</strong><br>
-  Pickup time (start): <%= form.text_field :pickup_start, id: "pickup_start" %>
+  From: <%= form.text_field :pickup_start, id: "pickup_start", placeholder:"hour" %>
       <div class="actions">
       <div style="overflow:hidden;">
         <div class="form-group">
@@ -51,7 +51,8 @@
             $(function () {
                 $('#datetimepicker12').datetimepicker({
                     inline: true,
-                    format: "HH:mm"
+                    format: "HH:mm",
+                    stepping: 30
                 });
 
                 $('#datetimepicker12').on("dp.change", 
@@ -65,7 +66,7 @@
     </div>
 
 
-     Pickup time(end): <%= form.text_field :pickup_end, id: "pickup_end" %>
+     To: <%= form.text_field :pickup_end, id: "pickup_end", placeholder:"hour" %>
       <div class="actions">
       <div style="overflow:hidden;">
         <div class="form-group">
@@ -79,7 +80,8 @@
             $(function () {
                 $('#datetimepicker13').datetimepicker({
                     inline: true,
-                    format: "HH:00"
+                    format: "HH:mm",
+                    stepping: 30
                 });
 
                 $('#datetimepicker13').on("dp.change", 

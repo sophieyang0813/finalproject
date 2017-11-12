@@ -1,5 +1,6 @@
 <%= render 'form'%>
-F
+
+
 <% if @charity.errors.any? %> 
 <div id="error_explanation">
 	<h3><%= pluralize(@charity.errors.count, "error") %>:</h3>
@@ -13,12 +14,4 @@ F
 <% end %>
 
 <%= link_to "new supporter", new_supporter_path %><br>
-
-
-
-
-
-
-
-
-
+<%= link_to "sign in", new_session_path %>

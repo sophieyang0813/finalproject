@@ -15,6 +15,7 @@ end
 def show
 end
 
+
 def edit
   @states = state_options
 end
@@ -50,5 +51,10 @@ def state_options
   end
   states.sort!
 end
+
+
+  def set_charity
+    @charity = Charity.find(params[:id])
+  end
 
 end 

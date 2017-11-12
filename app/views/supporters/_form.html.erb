@@ -1,6 +1,7 @@
 <%= form_for @supporter do |form| %>
 
 <div>
+
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
 </div>
@@ -11,16 +12,19 @@
 </div>
 
 <div>
+
   <%= form.label :last_name %>
   <%= form.text_field :last_name, type: 'last_name', placeholder: 'Last name' %>
 </div>
 
 <div>
+
   <%= form.label :first_name %>
   <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
 </div>
 
 <div>
+
   <%= form.label :org_name %>
   <%= form.text_field :org_name, type: 'org_name', placeholder: 'Org name' %>
 </div>

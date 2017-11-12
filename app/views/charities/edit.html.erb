@@ -1,11 +1,12 @@
 
-<h1>Update your details</h1>
+Charity/update 
 
-<%= form_for @charity do |form| %>
-<%= render partial: 'charities/form', object: form %>
+profiles upate 
 
-<div>
-  <%= form.submit "Join" %>
-</div>
+<p>Edit informations</p>
+<%= render 'form'%>
 
-<% end %>
+<br>
+<br>
+<%= link_to "Back", charity_path(@charity) %>
+
