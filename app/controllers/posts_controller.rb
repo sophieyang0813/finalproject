@@ -2,10 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # before_action :require_login, only: [:edit,:update,:destroy]
 
+  #sort the posts 
+  helper_method :sort_column, :sort_direction
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+
+     @posts = Post.all.order(sort_column + ' ' + sort_direction)
 
   end
 
@@ -86,4 +90,14 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :pickup_start, :pickup_end, :deadline_for_collection,:description, photos: [])
     end
+
+    def sort_direction
+        %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+      end
+     
+      def sort_column
+          Post.column_names.include?(params[:sort]) ? params[:sort] : "title"
+      end
+
+
 end
