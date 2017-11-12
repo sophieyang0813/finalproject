@@ -13,7 +13,12 @@
 
   <!--   form   -->
 
-  <div class="actions">
+
+
+
+
+
+<div class="actions">
 
   <div class="text-field">
   <%= form.label :title %>
@@ -27,8 +32,68 @@
 
   <div class="date_field">
   <%= form.label :deadline_for_collection %>
-  <%= form.date_field :deadline_for_collection %>
+  <%= form.date_field :deadline_for_collection, min: Date.today %>
   </div>
+
+
+  <strong>Available time</strong><br>
+  Pickup time (start): <%= form.text_field :pickup_start, id: "pickup_start" %>
+      <div class="actions">
+      <div style="overflow:hidden;">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="datetimepicker12"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker12').datetimepicker({
+                    inline: true,
+                    format: "HH:mm"
+                });
+
+                $('#datetimepicker12').on("dp.change", 
+                  function (e) {
+                    var time = e.date.format('HH:mm');
+
+                    $('#pickup_start').val(time);
+                  });
+                });
+        </script>
+    </div>
+
+
+     Pickup time(end): <%= form.text_field :pickup_end, id: "pickup_end" %>
+      <div class="actions">
+      <div style="overflow:hidden;">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="datetimepicker13"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker13').datetimepicker({
+                    inline: true,
+                    format: "HH:00"
+                });
+
+                $('#datetimepicker13').on("dp.change", 
+                  function (a) {
+                    var time1 = a.date.format('HH:mm');
+
+                    $('#pickup_end').val(time1);
+                  });
+                });
+        </script>
+    </div>
+
+
+
 
   <div class="photos">
   <%= form.label :photos %>

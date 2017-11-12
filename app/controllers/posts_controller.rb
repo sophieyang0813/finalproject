@@ -84,6 +84,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title,:deadline_for_collection,:description, photos: [])
+      params.require(:post).permit(:title, :pickup_start, :pickup_end, :deadline_for_collection,:description, photos: [])
     end
 end
