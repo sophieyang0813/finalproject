@@ -3,6 +3,7 @@ class SupportersController < ApplicationController
 
   def new
     @supporter = Supporter.new 
+
   end 
 
   def create 
@@ -35,10 +36,7 @@ class SupportersController < ApplicationController
   private 
 
   def supporter_params
-    params.require(:supporter).permit(:last_name, :first_name, :email, :password, :org_name, :org_type, :town, :address, :phone_num)
+    params.require(:supporter).permit(:last_name, :first_name, :email, :password, :org_name, :org_type, :state, :town, :address, :phone_num, photos: [])
   end 
-
-
-
 
 end 

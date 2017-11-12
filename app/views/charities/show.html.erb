@@ -1,0 +1,62 @@
+
+<!-- Charity/information-->
+<div class="container">    
+      <div class="row">
+          <div class="panel panel-default">
+              <div class="panel-body">
+              	   <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                      <% if @charity.photos.length > 0 %>
+                       <%= link_to (image_tag @charity.photos[0].small.url,:class =>"img-circle",:id =>"profile-image1") %>
+                      <% end %>
+
+                    </div>
+
+                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                        <div class="container" >
+                    
+                            <div class="container details" >
+	                             <p><h4><%= @charity.first_name %> <%= @charity.last_name %></h4><p>
+	                             <p>
+	                                <strong>Charity name:</strong>
+	                                <%= @charity.charity_name %>
+	                             </p>
+
+	                            <p>
+	                                <strong>Charity type:</strong>
+	                                <%= @charity.charity_type  %>
+	                            </p>
+
+	                            <p>
+	                                <strong>State:</strong>
+	                                <%= @charity.state %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Town:</strong>
+	                                <%= @charity.town %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Address:</strong>
+	                                <%= @charity.address %>
+	                            </p>
+
+
+	                            <p>
+	                                <strong>Email:</strong>
+	                                <%= @charity.email %>
+	                            </p>
+
+	                            <p>
+	                                <strong>Phone number:</strong>
+	                                <%= @charity.phone_num %>
+	                            </p>
+                            </div>
+                            <!-- edit user's profile-->
+                        </div>
+                      <%= link_to "Edit?", edit_charity_path %>
+                     </div>
+              </div>
+          </div>
+      </div>
+ </div>

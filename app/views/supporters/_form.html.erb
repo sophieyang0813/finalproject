@@ -1,0 +1,64 @@
+<%= form_for @supporter do |form| %>
+
+<div>
+  <%= form.label :email %>
+  <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
+</div>
+
+<div>
+  <%= form.label :password %> 
+  <%= form.password_field :password, type: 'password', placeholder: 'Password' %> 
+</div>
+
+<div>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name, type: 'last_name', placeholder: 'Last name' %>
+</div>
+
+<div>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name, type: 'first_name', placeholder: 'First name' %>
+</div>
+
+<div>
+  <%= form.label :org_name %>
+  <%= form.text_field :org_name, type: 'org_name', placeholder: 'Org name' %>
+</div>
+
+<div>
+  <%= form.label :org_type %>
+  <%= form.text_field :org_type, type: 'org_type', placeholder: 'Org type' %>
+</div>
+
+
+<div>
+ <%= form.label "State" %>
+ <%= form.select(:state , options_for_select([[Malaysia.states[0],Malaysia.states[0]], [Malaysia.states[1],Malaysia.states[1]], [Malaysia.states[2],Malaysia.states[2]], [Malaysia.states[3],Malaysia.states[3]],[Malaysia.states[4],Malaysia.states[4]], [Malaysia.states[5],Malaysia.states[5]], [Malaysia.states[6],Malaysia.states[6]], [Malaysia.states[7],Malaysia.states[7]], [Malaysia.states[8],Malaysia.states[8]], [Malaysia.states[9],Malaysia.states[9]], [Malaysia.states[10],Malaysia.states[10]], [Malaysia.states[11],Malaysia.states[11]], [Malaysia.states[12],Malaysia.states[12]], [Malaysia.states[13],Malaysia.states[13]],[Malaysia.states[14],Malaysia.states[14]]]), {include_blank: true}) %>
+
+</div>
+
+<div>
+ <%= form.label "Town" %>
+ <%= form.select(:town , options_for_select([[Malaysia.states[0],Malaysia.states[0]], [Malaysia.states[1],Malaysia.states[1]], [Malaysia.states[2],Malaysia.states[2]], [Malaysia.states[3],Malaysia.states[3]],[Malaysia.states[4],Malaysia.states[4]], [Malaysia.states[5],Malaysia.states[5]], [Malaysia.states[6],Malaysia.states[6]], [Malaysia.states[7],Malaysia.states[7]], [Malaysia.states[8],Malaysia.states[8]], [Malaysia.states[9],Malaysia.states[9]], [Malaysia.states[10],Malaysia.states[10]], [Malaysia.states[11],Malaysia.states[11]], [Malaysia.states[12],Malaysia.states[12]], [Malaysia.states[13],Malaysia.states[13]],[Malaysia.states[14],Malaysia.states[14]]]), {include_blank: true}) %>
+</div>
+
+<div>
+  <%= form.label :address %>
+  <%= form.text_field :address, type: 'address', placeholder: 'Address' %>
+</div>
+
+<div>
+  <%= form.label :phone_num %>
+  <%= form.text_field :phone_num, type: 'phone_num', placeholder: 'Phone number' %>
+</div>
+
+<div class="photos">
+  <%= form.label :photos %>
+  <%= form.file_field :photos, multiple: true %>
+</div>
+
+<div>
+  <%= form.submit "Update" %>
+</div>
+
+<% end %>
