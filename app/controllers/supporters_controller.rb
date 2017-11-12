@@ -1,6 +1,9 @@
 class SupportersController < ApplicationController
   before_action :set_supporter,only: [:show,:edit,:update]
 
+  def awareness
+  end 
+
   def index
   @supporters = Supporter.all
   end 

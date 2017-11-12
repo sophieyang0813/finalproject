@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   
   root "posts#index"
+
   
   get '/myposts' => 'supporters#index'
   get '/myorders' => 'charities#index'
+
+  resources :contents, controller: "contents", only: [:index, :show]
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
