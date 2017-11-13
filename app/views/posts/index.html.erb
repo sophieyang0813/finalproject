@@ -5,22 +5,27 @@
 
 <div class="all_listings">
 
-<!--  render 'search_form' -->
-  
-    <%= form_tag(posts_path, class: 'form-inline', :method => "get") do %>
-      <%= text_field_tag :state, params[:state], placeholder: "STATE", class:'form-control col-lg-6'%>
-      <%= text_field_tag :town, params[:town], placeholder: "TOWN", class:'form-control col-lg-6'%>
-      <%= submit_tag "Search", class:'btn btn-secondary', style:'display: inline;'%>
-    <% end %>
+  <!--  sort -->
 
-<!--  <%=  %> -->
-
-<!--  sort -->
-
-  <div class="sortable_bar">
-  <%= sortable "id", "Latest" %>
+  <div class="sortable_bar col-xs-2">
+    <button class = "btn btn-default" style ="text-decoration: none"><%= sortable "id", "Sort by latest post"%></button>
   </div>
+<!--  render 'search_form' -->
+  <div class ="col-xs-10">
+  <%= form_tag(posts_path, class: 'form-inline', :method => "get") do %>
+    <%= text_field_tag :state, params[:state], placeholder: "STATE", class:'form-control col-lg-6'%>
+    <%= text_field_tag :town, params[:town], placeholder: "TOWN", class:'form-control col-lg-6'%>
+    <%= submit_tag "Search", class:'btn btn-secondary', style:'display: inline;'%>
+  <% end %>
+  </div>
+
+
+<div class= "col-xs-12"><hr></div>
+
+
+
   
+
 <!--  sort -->
 <!-- allposts -->
   <div  id="container">
@@ -33,27 +38,40 @@
                 <section class="col-xs-18 col-sm-6 col-md-4">
                   <div class="thumbnail">
                   
-                              <% if post.photos? %> 
-                                  <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
-                              <% else %>
-                                  <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
-                              <% end %>
+                    <% if post.photos? %> 
+                          <div class = "inline">
+                           <h2><strong><%= post.title %></strong></h2> 
+                           <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
+                           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+                          <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
+                          <p>Description | <%= post.description %></p>
+                          <p><%= post.supporter.state %> , <%= post.supporter.town %> </p>
+                        </div>
 
-                              <div class="caption">
-                              <p>ordered | <td><%= post.ordered_post %></td></p>
-                              <p>Title | <td><%= post.title %></td></p>
-                              <p>Description | <td><%= post.description %></td></p>
-                              <p>Pickup before | <td><%= post.deadline_for_collection.to_date %></td></p>
-                              <p>Pickup time | <td><%=post.pickup_start.strftime("%H:%M") %> - <%= post.pickup_end.strftime("%H:%M") %></td></p>
-                              <p>State | <td><%= post.supporter.state %></td></p>
-                              <p>Town | <td><%= post.supporter.town %></td></p>
+                    <% else %>
 
-                              <% if current_user.class == Charity %> 
-                              <a href="/posts/<%= post.id %>/orders/new">Order</a>
-                              <% end %>     
+                        <div class = "inline">
+                          <h2><strong><%= post.title %></strong></h2> 
+                          <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
+                           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+                          <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
+                          <p>Description | <%= post.description %></p>
+                        </div>
+                    <% end %>
 
-                              
-                              </div>
+                    <div class="caption">
+                    <!-- <p>Availability | <td><%= post.ordered_post %></td></p> -->
+                   <!--  <p><td><%= post.title %></td></p> -->
+                   <!--  <p>Description | <td><%= post.description %></td></p> -->
+                   <!--  <p>State | <td><%= post.supporter.state %></td></p>
+                    <p>Town | <td><%= post.supporter.town %></td></p>
+ -->
+                    <% if current_user.class == Charity %> 
+                    <a href="/posts/<%= post.id %>/orders/new">Order</a>
+                    <% end %>     
+
+                    
+                    </div>
 
                   </div>
                 </section>
