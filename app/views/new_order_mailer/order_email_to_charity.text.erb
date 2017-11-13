@@ -1,0 +1,6 @@
+
+Congratulations! We have reserved <%= @post.title %> for you
+You can see details of new order here: <%= post_order_url(@post, @order) %>
+
+You would like to pick up your food on <%= @order.collection_date %> at <%= @order.collection_time %>.
+If you would like to change the collection date and time, you can contact the supporter: <%= @supporter.email %> or <%=@supporter.phone_num %>
