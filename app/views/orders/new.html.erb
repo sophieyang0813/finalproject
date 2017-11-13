@@ -46,6 +46,13 @@
         enabledHours: range(startHour, endHour, 1)
 			});
 
+			$("#datetimepicker12").on("dp.change", function (e) {
+ 				var time = e.date.format('HH:mm:ss');
+ 				var date = e.date.format('YYYY-MM-DD');
+ 				$('#order_collection_time').val(time);
+ 				$('#order_collection_date').val(date);
+ 			});
+
 			// $('#datetimepicker12').datetimepicker({
 			// 	format: "mm/dd/yyyy",
 	  //     startDate: new Date().getDate()

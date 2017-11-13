@@ -3,27 +3,43 @@
 
 <!-- display photo -->
 
- 
+<div class = "col-xs-4"></div>
+<div class = "col-xs-4"><h2 class ="inline center" style ="text-align: center"> Successfully posted!</h2></div>
+ <div class = "col-xs-4"></div>
+
+ <hr>
+ <hr>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-
-
 
     <!-- Wrapper for slides -->
 
     <div class="carousel-inner">
 	     <div class="item active">
 		    <% if @post.photos?  %>
-		    <%= image_tag @post.photos[0].url %>
-		 
-		    <% @post.photos.shift %>
-		    <% @post.photos.each do |photo| %>
-		      <div class="item">
-		        <%= image_tag photo.url %>
-		      </div>
-		    <% end %>
+
+        <div class = "inline">
+           <h2><strong><%= post.title %></strong></h2> 
+           <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
+           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+  		    <%= image_tag @post.photos[0].url %>
+  		 
+  		    <% @post.photos.shift %>
+  		    <% @post.photos.each do |photo| %>
+  		      <div class="item">
+  		        <%= image_tag photo.url %>
+  		      </div>
+  		    <% end %>
+       </div>
+
 			    <% else %>
-			<%= image_tag 'default_posts.jpg' %>
+             <div class = "col-xs-12">
+              <h2><strong><%= @post.title %></strong></h2> 
+               <p>Pickup before | <%= @post.deadline_for_collection.to_date %></p>
+               <p class = "fontgrey">Availability | <%= @post.ordered_post %></p>
+             </div>
+			       <%= image_tag 'default_posts.jpg' %>
 
 	       <% end %>
 	     </div>
@@ -44,13 +60,13 @@
 
 <!-- display photo -->
 
-<div class="listing_information">
+<!-- <div class="listing_information">
 		<div class="caption">
 		<p>Title |<td><%= @post.title %></td></p>
 		
 		</div>
 </div>
+ -->
 
-
-<%= link_to 'Back', posts_path %>
+<button class = "btn btn-default center" style ="font-size: x-large;"><%= link_to 'See listing', posts_path %></button>
 </div> 
