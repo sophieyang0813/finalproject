@@ -56,8 +56,9 @@ class SupportersController < ApplicationController
   end
 
   def supporter_params
-
+    params[:supporter][:state].downcase
     params.require(:supporter).permit(:last_name, :first_name, :email, :password, :org_name, :org_type, :state, :town, :address, :phone_num, photos: [])
+
   end 
 
   def state_options
