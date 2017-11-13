@@ -2,7 +2,7 @@ class NewpostMailer < ApplicationMailer
 
 	# send to all charity
 
-	default from: 'pairbnbtesttest@gmail.com'
+	default from: 'foodloveshareproject@gmail.com'
 
 	 def notification_email(charity, supporter, post_id)
 	    @supporter = supporter
