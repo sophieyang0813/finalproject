@@ -22,7 +22,7 @@
         var coords = new google.maps.LatLng(mylat, mylong);
 
         var mapOptions = {
-          zoom: 16,
+          zoom: 11,
           center: coords,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
@@ -44,6 +44,7 @@ marker.addListener('click', function(){
   infoWindow.open(map, marker);
 });
 
+//adding more markers for charities when they sign up as supporter
 
 var supporterCoords = <%= @a.to_json %>
 supporterCoords.forEach(function(element){
@@ -52,7 +53,12 @@ supporterCoords.forEach(function(element){
     map: map
   });
 })
+
+
+
+
 }
+
 
 function failure(){
   $('body').append("<p>It didn’t work, co-ordinates are not available!</p>")

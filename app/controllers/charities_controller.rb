@@ -4,7 +4,6 @@ class CharitiesController < ApplicationController
 
  def new
   @charity = Charity.new
-  
   @states = state_options
 end
 
@@ -17,7 +16,6 @@ end
 
 
 def create
-
   @charity = Charity.new(charity_params)
   if @charity.save
     redirect_to root_path
@@ -25,9 +23,6 @@ def create
     @states = state_options
     render "new"
   end
-
-
-
 end 
 
 def show
