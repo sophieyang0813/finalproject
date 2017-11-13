@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
            redirect_to posts_path
         end
     else
-      # flash[:danger] = 'Please check again'
+      flash[:warning] = "Invalid Username or password"
+      # @errors = "Invalid Username or password"
       redirect_to new_session_path
     end         
 

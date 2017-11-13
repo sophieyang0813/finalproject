@@ -1,4 +1,19 @@
-<%= render 'form'%>
+
+
+<br>
+<br>
+
+<div class = "sgnupcenter">
+  <h1 class= "barcodefont">Join the Community</h1>
+  <%= form_for @charity do |form| %>
+    <%= render partial: "form", locals: {form: form} %>
+    <div>
+      <%= form.submit "Join" %>
+    </div>
+  <% end %>
+
+</div>
+
 
 
 <% if @charity.errors.any? %> 

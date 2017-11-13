@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   
   root "posts#index"
 
-  
-  get '/myposts' => 'supporters#index'
+  get 'myposts' => 'supporters#index'
   get '/myorders' => 'charities#index'
-  # get '/hello' => 'contents#hello'
+  get '/story' => 'contents#show'
 
-  resources :contents, controller: "contents", only: [:index, :show]
+  resources :contents, controller: "contents", only: [:index]
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 

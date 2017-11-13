@@ -1,36 +1,39 @@
 sessions/new
 
 
-<%= form_for :session, url: session_path do |form| %>
-  <div>
-    <% form.label :email %>
-    <%= form.text_field :email, type: 'email', placeholder: 'email' %>
-  </div>
-
-   <div>
-    <% form.label :password %>
-    <%= form.password_field :password, type: 'password', placeholder: 'password' %>
-  </div>
-
-  <div>
-    <%= form.submit "log in"%> 
-  </div>
-  
-  <% end %> 
+<div class ="sgnupcenter">
 
 
+  <h1 class = "barcodefont"> Food | Love | Share </h1>
+    <div class ="jsfont"> 
+    <h3 class ="fontgrey">A Place to share food and build community</h3>
+      <%= form_for :session, url: session_path do |form| %>
+        <div>
+          <% form.label :email %>
+          <%= form.text_field :email, type: 'email', placeholder: 'email' %>
+        </div>
 
-  <% if @user.errors.any? %> 
-  <div id="error_explanation">
-    <h3><%= pluralize(@user.errors.count, "error") %>:</h3>
- 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li> <%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+         <div>
+          <% form.label :password %>
+          <%= form.password_field :password, type: 'password', placeholder: 'password' %>
+        </div>
+          <br>
+          <br>
+        <div>
+          
+          <%= form.submit "log in"%> 
+        </div>
+        <% end %> 
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+
+
+</div>
+
 
 
 

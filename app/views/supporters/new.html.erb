@@ -1,18 +1,40 @@
-<%= render 'form'%>
+<!-- <#%= render 'form'%>
+ -->
 
 
+<br>
+<br>
+<div class = "sgnupcenter">
+  <h1 class= "barcodefont">Join the Community</h1>
 
-<% if @supporter.errors.any? %> 
-  <div id="error_explanation">
-    <h3><%= pluralize(@supporter.errors.count, "error") %>:</h3>
- 
-    <ul>
-    <% @supporter.errors.full_messages.each do |msg| %>
-      <li> <%= msg %></li>
+   
+  <%= form_for @supporter do |form| %>
+    <%= render partial: "form", locals: {form: form} %>
+    <div>
+      <%= form.submit "Join" %>
+    </div>
     <% end %>
-    </ul>
-  </div>
-<% end %>
+    
+     
+      <% if @supporter.errors.any? %> 
+        <div id="error_explanation">
+        <% @supporter.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+        </div>
+      <% end %>
+   
+
+</div>
+
+
+
+
+
+
+
+
+
 
 
 

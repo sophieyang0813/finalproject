@@ -3,7 +3,19 @@ Supporters/update
 profiles upate 
 
 <p>Edit informations</p>
-<%= render 'form'%>
+
+
+<%= form_for @supporter do |form| %>
+
+<%= render partial: "form", locals: {form: form} %>
+
+
+<div>
+  <%= form.submit "Update" %>
+</div>
+
+<% end %>
+
 
 <br>
 <br>

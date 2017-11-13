@@ -18,8 +18,15 @@
  	width: 80%;
  }
 
-body {
-  font-family: 'Comfortaa', cursive;
+
+
+.sgnupbox {
+   /* height:50px;
+    width: 100px;*/
+    font-size:22px;
+    opacity: 0.5;
+    border-radius: 10px;
+   font-family: 'Josefin Slab', serif;
 }
 
 .barcodefont {
@@ -27,14 +34,14 @@ body {
 }
 
 
-
 .qsfont {
   font-family: 'Quicksand', sans-serif;
-   // font-family: 'Varela Round', sans-serif;
-  // font-family: 'Sacramento', cursive;
-  // font-family: 'Comfortaa', cursive;
 }
 
+
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+}
 
 .bcfontsm {
   font-family: 'Libre Barcode 39 Text', cursive;
