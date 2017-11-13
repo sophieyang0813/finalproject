@@ -23,8 +23,17 @@ class PostsController < ApplicationController
     
     
 
-     
+
+   @posts = Post.all.order(sort_column + ' ' + sort_direction)
+   @a = [];
+   @posts.each do |post|
+    if post.supporter.latitude != nil && post.supporter.longitude != nil
+      @a << [post.supporter.latitude, post.supporter.longitude]
+    end
+
   end
+end
+
 
   # GET /posts/1
   # GET /posts/1.json
@@ -55,7 +64,9 @@ class PostsController < ApplicationController
 
         # Tell the UserMailer to send a welcome email after save
         # Charity.all.each do |c| 
+
           NewpostMailer.notification_email('foodloveshareproject@gmail.com', @post.supporter.last_name, @post.id).deliver_later
+
         # end
 
         format.html { redirect_to (posts_url), notice: 'Post was successfully updated.' }
@@ -105,12 +116,12 @@ class PostsController < ApplicationController
     end
 
     def sort_direction
-        %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-      end
-     
-      def sort_column
-          Post.column_names.include?(params[:sort]) ? params[:sort] : "title"
-      end
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+
+    def sort_column
+      Post.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    end
 
 
-end
+  end

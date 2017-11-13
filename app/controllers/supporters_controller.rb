@@ -5,11 +5,8 @@ class SupportersController < ApplicationController
   end 
 
   def index
-
     @supporter = Supporter.find(params[:supporter_id])
-    
     @posts = @supporter.posts
-
   end 
 
   def new
@@ -18,7 +15,6 @@ class SupportersController < ApplicationController
   end 
 
   def create
-
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save
@@ -33,8 +29,6 @@ class SupportersController < ApplicationController
   def show
   end
 
-
-
   def edit
     @states = state_options
      # @supporter = Supporter.find(params[:id])
@@ -48,7 +42,6 @@ class SupportersController < ApplicationController
       p @supporter.errors
       render :edit
     end
-
   end 
 
 
