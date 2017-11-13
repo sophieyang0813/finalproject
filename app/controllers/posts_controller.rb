@@ -10,7 +10,12 @@ class PostsController < ApplicationController
   def index
 
      @posts = Post.all.order(sort_column + ' ' + sort_direction)
-     
+     @a = [];
+      @posts.each do |post|
+        if post.supporter.latitude != nil && post.supporter.longitude != nil
+          @a << [post.supporter.latitude, post.supporter.longitude]
+        end
+      end
   end
 
   # GET /posts/1
