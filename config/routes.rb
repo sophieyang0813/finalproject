@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  root "posts#index"
+  root "contents#show"
 
   get '/story' => 'contents#show'
 
