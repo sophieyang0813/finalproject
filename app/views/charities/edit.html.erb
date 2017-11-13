@@ -1,10 +1,13 @@
-<div>
-	<h3>Update your account details</h3>
-	<%= form_for @charity do |form| %>
-	<%= render partial: '/charities/form', object: form %>
-	<%= form.submit "Confirm" %>
-	<% end %>
-</div>
+
+
+<p>Edit informations</p>
+<%= form_for @charity do |form| %>
+<%= render partial: "form", locals: {form: form} %>
+
+  <div>
+    <%= form.submit "Update" %>
+  </div>
+<% end %>
 
 
 <br>

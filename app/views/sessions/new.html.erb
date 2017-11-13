@@ -1,26 +1,32 @@
-sessions/new
+<div class ="sgnupcenter">
 
 
-<%= form_for :session, url: session_path do |form| %>
-  <div>
-    <% form.label :email %>
-    <%= form.text_field :email, type: 'email', placeholder: 'email' %>
-  </div>
+  <h1 class = "barcodefont"> Food | Love | Share </h1>
+    <div class ="jsfont"> 
+    <h3 class ="fontgrey">A Place to share food and build community</h3>
+      <%= form_for :session, url: session_path do |form| %>
+        <div>
+          <% form.label :email %>
+          <%= form.text_field :email, type: 'email', placeholder: 'email' %>
+        </div>
 
-   <div>
-    <% form.label :password %>
-    <%= form.password_field :password, type: 'password', placeholder: 'password' %>
-  </div>
+         <div>
+          <% form.label :password %>
+          <%= form.password_field :password, type: 'password', placeholder: 'password' %>
+        </div>
+          <br>
+          <br>
+        <div>
+          
+          <%= form.submit "log in"%> 
+        </div>
+        <% end %> 
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
 
-  <div>
-    <%= form.submit "log in"%> 
-  </div>
-  
-  <% end %> 
 
 
-
-
-<%= link_to "Supporter sign up", new_supporter_path %>
-<%= link_to "Charity sign up", new_charity_path %>
-  
+</div>

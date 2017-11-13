@@ -12,14 +12,15 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
         if @user.class == Supporter
-          session[:user_id] = @user.id
+          session[:user_id] = @user.id  #
           redirect_to posts_path
         elsif @user.class == Charity
           session[:user_id] = @user.id
            redirect_to posts_path
         end
     else
-      # flash[:danger] = 'Please check again'
+      flash[:warning] = "Invalid Username or password"
+      # @errors = "Invalid Username or password"
       redirect_to new_session_path
     end         
 
