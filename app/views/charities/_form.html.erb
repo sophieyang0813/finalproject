@@ -1,3 +1,4 @@
+
 <div>
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
@@ -51,9 +52,10 @@
 </div>
 
 <div class="photos">
-  <%= form.label :photos %>
+  <% form.label :photos %>
   <%= form.file_field :photos, multiple: true %>
 </div>
+
 
 
 <div id="city_list" class="hide">
@@ -122,6 +124,5 @@
   }
 
 </script>
-
 
 

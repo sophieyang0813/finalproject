@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20171112110809) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.json "photos"
     t.string "state"
   end
