@@ -44,7 +44,7 @@
 
   <!-- navbar -->
 
-  <% if current_user.class == Supporter %> 
+<!--   <#% if current_user.class == Supporter %>  -->
 
     <nav class="navbar navbar-default" style="background-color: #fbfbfb;">
       <div class="container-fluid">
@@ -62,9 +62,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-           <!--  <li class="active"><a href="#"><span class="sr-only">(current)</span></a></li> -->
             <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
-           <!--  <li><#%= link_to 'Awareness', contents_path %></li> -->
             <li><%= link_to 'Community | Story', story_path %></li>
             <li><%= link_to 'Love | Share', posts_path %></li>
           </ul>
@@ -74,15 +72,20 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
+
           <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to 'New Post', new_post_path %></li>
-                <li><%= link_to 'My Post', supporter_posts_path(current_user) %></li>
-              </ul>
-            </li>
+
+  <% if current_user.class == Supporter %> 
+
             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'New Post', new_post_path %></li>
+                  <li><%= link_to 'My Post', supporter_posts_path(current_user) %></li>
+                </ul>
+              </li>
+
+               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>  Signed in as <%= current_user.class %></li>
@@ -90,201 +93,58 @@
                 <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
               </ul>
             </li>
+
+  <% elsif current_user.class == Charity %>  
+
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'My Order',  charity_orders_path(current_user) %></li>
+                </ul>
+              </li>
+
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>  Signed in as <%= current_user.class %></li>
+                <li><%= link_to 'My page', supporter_path(current_user) %></li>
+                <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+              </ul>
+            </li>
+
+    <% else %> 
+
+      <li class="dropdown">
+        <a href="/sign_in" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Sign in', sign_in_path %></li>
+          <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to "Supporter sign up", new_supporter_path %></li>
+          <li><%= link_to "Charity sign up", new_charity_path %></li> 
+
+    <% end %>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
 
-<% elsif current_user.class == Charity %>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand barcodefont" href="/" style ="font-size: xx-large">Food|Love|Share</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-
-      <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
-           <li><%= link_to 'Community | Story', story_path %></li>
-            <li><%= link_to 'Love | Share', posts_path %></li>
-         </ul>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Sharing is Caring!">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to 'My Order',  charity_orders_path(current_user) %></li>
-              </ul>
-            </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'New Post', new_post_path %></li>
-              <li><%= link_to 'My Post', myposts_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-
-                <li>  Signed in as <%= current_user.class %></li>
-                <li><%= link_to 'My page', charity_path(current_user) %></li>
-                <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <% elsif current_user.class == Charity %>
-
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Brand</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-           <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
-           <li><%= link_to 'Community | Story', story_path %></li>
-            <li><%= link_to 'Love | Share', posts_path %></li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Sharing is Caring!">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
- 
-        <ul class="nav navbar-nav navbar-right">
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-
-            <li><%= link_to 'My Order',  "/charities/#{current_user.id}/orders" %></li>
-
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>  Signed in as <%= current_user.class %></li>
-            <li><%= link_to 'My page', charity_path(current_user) %></li>
-            <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 
 
 
 
-<% else %> 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <a class="navbar-brand barcodefont" href="/" style ="font-size: xx-large">Food|Love|Share</a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Food | Awareness', contents_path %><span class="sr-only">(current)</span></li>
-           <!--  <li><#%= link_to 'Awareness', contents_path %></li> -->
-            <li><%= link_to 'Community | Story', story_path %></li>
-            <li><%= link_to 'Love | Share', posts_path %></li>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Sharing is Caring!">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="/sign_in" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign in<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Sign in', sign_in_path %></li>
-            <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Supporter sign up", new_supporter_path %></li>
-            <li><%= link_to "Charity sign up", new_charity_path %></li> 
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-
-<% end %>
 
 <% flash.each do |key, value| -%>
             <div id="flash_<%= key %>" class="<%= flash_class(key)%>"><%=h value %></div>
           <% end %>
 
 
-<<<<<<< HEAD
+
 	<%= yield %>
 <!--  session id? <#%= session[:user_id] %> -->
-=======
-<%= yield %>
-<!--  session id? <%= session[:user_id] %> -->
->>>>>>> 1fd07b2420c897ae5825b63f285dc6e37d7d5104
+
 </body>
 </html>
