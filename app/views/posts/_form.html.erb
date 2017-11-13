@@ -15,96 +15,106 @@
 
 
 
+<div class="actions postcenter">
+  <br>
 
-
-
-<div class="actions">
-
-  <div class="text-field">
-  <%= form.label :title %>
-  <%= form.text_field :title, type: 'title' %>
-  </div>
-
-  <div class="text-field">
-  <%= form.label :description %>
-  <%= form.text_field :description, type: 'description' %>
-  </div>
-
-  <div class="date_field">
-  <%= form.label :deadline_for_collection %>
-  <%= form.date_field :deadline_for_collection, min: Date.today %>
-  </div>
-
-
-  <strong>Available time</strong><br>
-  From: <%= form.text_field :pickup_start, id: "pickup_start", placeholder:"hour" %>
-      <div class="actions">
-      <div style="overflow:hidden;">
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-3">
-                    <div id="datetimepicker12"></div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker12').datetimepicker({
-                    inline: true,
-                    format: "HH:mm",
-                    stepping: 30
-                });
-
-                $('#datetimepicker12').on("dp.change", 
-                  function (e) {
-                    var time = e.date.format('HH:mm');
-
-                    $('#pickup_start').val(time);
-                  });
-                });
-        </script>
+  <div class = "col-xs-4 inline2 vrtline postbox">
+    <h2><strong>New Post</strong></h2>
+    <div class="text-field">
+    <% form.label :title %>
+    <%= form.text_field :title, type: 'title' , placeholder: 'Title' %>
     </div>
 
-
-     To: <%= form.text_field :pickup_end, id: "pickup_end", placeholder:"hour" %>
-      <div class="actions">
-      <div style="overflow:hidden;">
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-3">
-                    <div id="datetimepicker13"></div>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker13').datetimepicker({
-                    inline: true,
-                    format: "HH:mm",
-                    stepping: 30
-                });
-
-                $('#datetimepicker13').on("dp.change", 
-                  function (a) {
-                    var time1 = a.date.format('HH:mm');
-
-                    $('#pickup_end').val(time1);
-                  });
-                });
-        </script>
+    <div class="date_field">
+    <%= form.label :pickup_before %>
+    <%= form.date_field :deadline_for_collection, min: Date.today %>
     </div>
 
+    <div class="text-field">
+    <% form.label :description %>
+    <%= form.text_area :description, type: 'description' , placeholder: 'Description' %>
+    </div>
 
-
-
-  <div class="photos">
-  <%= form.label :photos %>
-  <%= form.file_field :photos, multiple: true %>
+    <div class="photos postbox">
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %>
+    </div>
   </div>
 
-   <div class="submit-field">
-      <%= form.submit %>
+  <div class = "col-xs-4 inline2 postbox">
+  
+
+    <h3><strong>Available time range</strong></h3><br>
+     <%= form.text_field :pickup_start, id: "pickup_start", placeholder:"From" %>
+        <div class="actions">
+        <div style="overflow:hidden;">
+          <div class="form-group">
+              <div class="row" style= "margin-left: 15px;">
+                  <div class="col-md-4" style = "width:auto;">
+                      <div id="datetimepicker12"></div>
+                  </div>
+              </div>
+          </div>
+          <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker12').datetimepicker({
+                      inline: true,
+                      format: "HH:mm",
+                      stepping: 30
+                  });
+
+                  $('#datetimepicker12').on("dp.change", 
+                    function (e) {
+                      var time = e.date.format('HH:mm');
+
+                      $('#pickup_start').val(time);
+                    });
+                  });
+          </script>
+        </div>
+      </div>
+    </div>
+      
+
+    <div class = "col-xs-4 inline2 postbox">
+      <br><br><br>
+       <%= form.text_field :pickup_end, id: "pickup_end", placeholder:"To" %>
+        <div class="actions">
+          <div style="overflow:hidden;">
+            <div class="form-group">
+                <div class="row" style= "margin-left: 15px;">
+                    <div class="col-md-4" style = "width:auto;">
+                        <div id="datetimepicker13"></div>
+                    </div>
+                </div>
+            </div>
+              <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker13').datetimepicker({
+                      inline: true,
+                      format: "HH:mm",
+                      stepping: 30
+                  });
+
+                  $('#datetimepicker13').on("dp.change", 
+                    function (a) {
+                      var time1 = a.date.format('HH:mm');
+
+                      $('#pickup_end').val(time1);
+                    });
+                  });
+              </script>
+         </div>
+        </div>
+     </div>
+     </div>
+
+
+    <div class = "col-xs-4"></div>
+   <div class="submit-field col-xs-4 postbox createbtn">
+      <%= form.submit  %>
    </div>
+   <div class = "col-xs-4"></div>
   
   </div>
 
