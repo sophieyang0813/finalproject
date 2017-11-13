@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
         if @user.class == Supporter
-          session[:user_id] = @user.id
+          session[:user_id] = @user.id  #
           redirect_to posts_path
         elsif @user.class == Charity
           session[:user_id] = @user.id

@@ -22,6 +22,7 @@ class SupportersController < ApplicationController
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save
+     session[:user_id] = @supporter.id
       redirect_to root_path
     else
       @states = state_options
