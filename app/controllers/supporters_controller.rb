@@ -2,29 +2,27 @@ class SupportersController < ApplicationController
   before_action :set_supporter,only: [:show,:edit,:update]
 
   def index
+
     @supporter = Supporter.find(params[:supporter_id])
     
     @posts = @supporter.posts
+
   end 
 
   def new
     @supporter = Supporter.new 
-
+    @states = state_options
   end 
 
-  def create 
-    # byebug
-    
+  def create
+
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save
-      session[:user_id] = @supporter.id
-      redirect_to posts_path
+      redirect_to root_path
     else
-      # flash[:notice] = @supporter.errors.messages[:email]
-      # flash[:notice] = @supporter.errors.details[:email]
-      # flash[:notice] = @supporter.errors.messages[:password]
-      render template: "supporters/new" 
+      @states = state_options
+      render "new" 
     end 
   end 
 
@@ -34,10 +32,11 @@ class SupportersController < ApplicationController
 
 
   def edit
+    @states = state_options
      # @supporter = Supporter.find(params[:id])
-  end
+   end
 
-  def update
+   def update
     # @supporter = current_user 
     if @supporter.update(supporter_params)
       redirect_to @supporter
@@ -47,7 +46,7 @@ class SupportersController < ApplicationController
     end
 
   end 
- 
+
 
   private 
 
@@ -60,5 +59,13 @@ class SupportersController < ApplicationController
 
     params.require(:supporter).permit(:last_name, :first_name, :email, :password, :org_name, :org_type, :state, :town, :address, :phone_num, photos: [])
   end 
+
+  def state_options
+    states = []
+    Malaysia.states.each do |s|
+      states.push([s,s])
+    end
+    return states.sort!
+  end
 
 end 

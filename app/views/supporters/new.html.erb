@@ -1,4 +1,10 @@
-<%= render 'form'%>
+<div>
+	<h3>Create a new account</h3>
+	<%= form_for @supporter do |form| %>
+	<%= render partial: '/supporters/form', object: form %>
+	<%= form.submit "Submit" %>
+	<% end %>
+</div>
 
 
 
@@ -13,9 +19,6 @@
     </ul>
   </div>
 <% end %>
-
-
-
 
 <%= link_to "new charity", new_charity_path %><br>
 <%= link_to "sign in", new_session_path %>
