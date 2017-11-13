@@ -1,9 +1,11 @@
-Supporters/update 
+<div>
+	<h3>Update your account details</h3>
+	<%= form_for @supporter do |form| %>
+	<%= render partial: '/supporters/form', object: form %>
+	<%= form.submit "Confirm" %>
+	<% end %>
+</div>
 
-profiles upate 
-
-<p>Edit informations</p>
-<%= render 'form'%>
 
 <br>
 <br>
