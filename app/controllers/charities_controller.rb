@@ -8,7 +8,16 @@ class CharitiesController < ApplicationController
   @states = state_options
 end
 
+def index
+
+  @charity = Charity.find(params[:charity_id])
+  @orders = @charity.orders
+
+end
+
+
 def create
+
   @charity = Charity.new(charity_params)
   if @charity.save
     redirect_to root_path
@@ -16,6 +25,7 @@ def create
     @states = state_options
     render "new"
   end
+
 
 
 end 

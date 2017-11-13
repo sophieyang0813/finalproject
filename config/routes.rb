@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   
   root "posts#index"
   
-  get '/myposts' => 'supporters#index'
-  get '/myorders' => 'charities#index'
+  # get '/myposts' => 'supporters#index'
+  # get '/myorders' => 'charities#index'
+   
+  get "/supporters/:supporter_id/posts", to: "supporters#index", as: "supporter_posts"
+  get "/charities/:charity_id/orders", to: "charities#index", as: "charity_orders"
+
 
   resources :supporters, controller: "supporters", only: [:create, :new, :index, :update ,:show, :edit]
 
