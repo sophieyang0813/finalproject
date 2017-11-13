@@ -1,0 +1,78 @@
+.parallax {
+    /* The image used */
+    background-image: url("cabbage.jpg");
+
+    /* Set a specific height */
+    min-height: 600px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2 {
+    /* The image used */
+    background-image: url("sun.jpg");
+
+    /* Set a specific height */
+    min-height: 600px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+    background-image: url("cabbage.jpg");
+
+    /* Set a specific height */
+    min-height: 500px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ftwhite {
+  color: white;
+}
+
+.inline {
+  display:inline;
+   font-family: 'Josefin Slab', serif;
+    text-align: center;
+    
+}
+
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+  text-align: center;
+}
+// whitescroll 1 
+.sminline {
+  display:inline;
+   // font-size: 50px;
+   font-family: 'Josefin Slab', serif;
+    text-align: center;
+    border-right: 1px dashed #333;
+}
+
+
+.left {
+margin-left: auto!important;
+}
+
+
+
+

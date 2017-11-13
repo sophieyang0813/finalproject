@@ -17,3 +17,71 @@
  .container {
  	width: 80%;
  }
+
+
+.box {
+  
+}
+
+.sgnupbox {
+   /* height:50px;
+    width: 100px;*/
+    font-size:22px;
+    opacity: 0.5;
+    border-radius: 10px;
+   font-family: 'Josefin Slab', serif;
+}
+
+.barcodefont {
+  font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+
+.qsfont {
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+}
+
+.bcfontsm {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  display:inline;
+   font-size: 20px;
+
+}
+.inline {
+   display:inline;
+   font-size: 18px;
+}
+
+
+.txtcenter {
+  text-align: center;
+}
+
+.fontgrey {
+  color: #00000047; 
+}
+
+
+/*postshow*/
+
+.carousel{
+   width:30%; /*サイズ指定*/
+   margin:auto;
+}
+.carousel img{
+   width:100%;
+}
+
+.container_post {
+     padding-right: 50px;
+    padding-left:  50px;
+  
+}
+
+
+

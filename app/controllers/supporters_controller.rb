@@ -1,6 +1,9 @@
 class SupportersController < ApplicationController
   before_action :set_supporter,only: [:show,:edit,:update]
 
+  def awareness
+  end 
+
   def index
     @supporter = Supporter.find(params[:supporter_id])
     @posts = @supporter.posts
@@ -15,6 +18,7 @@ class SupportersController < ApplicationController
     @supporter = Supporter.new(supporter_params)
 
     if @supporter.save
+     session[:user_id] = @supporter.id
       redirect_to root_path
     else
       @states = state_options
@@ -49,8 +53,9 @@ class SupportersController < ApplicationController
   end
 
   def supporter_params
-
+    params[:supporter][:state].downcase
     params.require(:supporter).permit(:last_name, :first_name, :email, :password, :org_name, :org_type, :state, :town, :address, :phone_num, photos: [])
+
   end 
 
   def state_options

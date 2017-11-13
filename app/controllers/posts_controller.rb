@@ -7,7 +7,22 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+
   def index
+    if params[:state] || params[:town]
+
+      @posts = Post.search(params[:state] ,params[:town])
+
+    else
+      @posts = Post.all.order(sort_column + ' ' + sort_direction)
+
+    end
+
+
+
+    
+    
+
 
    @posts = Post.all.order(sort_column + ' ' + sort_direction)
    @a = [];
@@ -15,6 +30,7 @@ class PostsController < ApplicationController
     if post.supporter.latitude != nil && post.supporter.longitude != nil
       @a << [post.supporter.latitude, post.supporter.longitude]
     end
+
   end
 end
 
@@ -48,7 +64,9 @@ end
 
         # Tell the UserMailer to send a welcome email after save
         # Charity.all.each do |c| 
-        NewpostMailer.notification_email('pairbnbtesttest@gmail.com', @post.supporter.last_name, @post.id).deliver_later
+
+          NewpostMailer.notification_email('foodloveshareproject@gmail.com', @post.supporter.last_name, @post.id).deliver_later
+
         # end
 
         format.html { redirect_to (posts_url), notice: 'Post was successfully updated.' }

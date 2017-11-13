@@ -4,10 +4,11 @@ class Supporter < ApplicationRecord
 
   validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   mount_uploaders :photos, PhotoUploader
+
   geocoded_by :address
   after_validation :geocode
-  
 
+ 
 end
 
 
