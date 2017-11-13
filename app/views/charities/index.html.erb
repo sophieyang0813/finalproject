@@ -7,13 +7,11 @@
 
 <% else %> 
 
-  <% current_user.orders.each do |x| %> 
+  <% current_user.orders.order(created_at: :desc).each do |x| %> 
     <div>
-      <%= x.title %><br>
-      <%= x.deadline_for_collection.to_date %><br>
-      <%= x.description %> 
-      <%= link_to 'Update', edit_post_path(x) %><br>
-       <hr>
+      <br>Title: <%= x.post.title %><br>
+      <br>Ordered date: <%= x.created_at %><br>
+      <br>Collection date/time: <%= x.collection_date %>/<%= x.collection_time %><br>
     </div>
   <% end %> 
 
