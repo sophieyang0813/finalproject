@@ -4,11 +4,19 @@ class CharitiesController < ApplicationController
 
  def new
   @charity = Charity.new
+  
   @states = state_options
 end
 
-def create 
+def create
   @charity = Charity.new(charity_params)
+  if @charity.save
+    redirect_to root_path
+  else
+    @states = state_options
+    render "new"
+  end
+
 
 end 
 
@@ -22,7 +30,7 @@ end
 
 def update
   if @charity.update(charity_params)
-    redirect_to @charity
+    redirect_to root_path
   else
     p @charity.errors
     render :edit
@@ -49,12 +57,12 @@ def state_options
   Malaysia.states.each do |s|
     states.push([s,s])
   end
-  states.sort!
+  return states.sort!
 end
 
 
-  def set_charity
-    @charity = Charity.find(params[:id])
-  end
+def set_charity
+  @charity = Charity.find(params[:id])
+end
 
 end 

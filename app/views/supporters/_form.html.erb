@@ -1,7 +1,4 @@
-<%= form_for @supporter do |form| %>
-
 <div>
-
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email', placeholder: 'Email' %>
 </div>
@@ -37,13 +34,12 @@
 
 <div>
  <%= form.label "State" %>
- <%= form.select(:state , options_for_select([[Malaysia.states[0],Malaysia.states[0]], [Malaysia.states[1],Malaysia.states[1]], [Malaysia.states[2],Malaysia.states[2]], [Malaysia.states[3],Malaysia.states[3]],[Malaysia.states[4],Malaysia.states[4]], [Malaysia.states[5],Malaysia.states[5]], [Malaysia.states[6],Malaysia.states[6]], [Malaysia.states[7],Malaysia.states[7]], [Malaysia.states[8],Malaysia.states[8]], [Malaysia.states[9],Malaysia.states[9]], [Malaysia.states[10],Malaysia.states[10]], [Malaysia.states[11],Malaysia.states[11]], [Malaysia.states[12],Malaysia.states[12]], [Malaysia.states[13],Malaysia.states[13]],[Malaysia.states[14],Malaysia.states[14]]]), {include_blank: true}) %>
-
+ <%= form.select(:state , options_for_select(@states), {include_blank: true}) %>
 </div>
 
 <div>
- <%= form.label "Town" %>
- <%= form.select(:town , options_for_select([[Malaysia.states[0],Malaysia.states[0]], [Malaysia.states[1],Malaysia.states[1]], [Malaysia.states[2],Malaysia.states[2]], [Malaysia.states[3],Malaysia.states[3]],[Malaysia.states[4],Malaysia.states[4]], [Malaysia.states[5],Malaysia.states[5]], [Malaysia.states[6],Malaysia.states[6]], [Malaysia.states[7],Malaysia.states[7]], [Malaysia.states[8],Malaysia.states[8]], [Malaysia.states[9],Malaysia.states[9]], [Malaysia.states[10],Malaysia.states[10]], [Malaysia.states[11],Malaysia.states[11]], [Malaysia.states[12],Malaysia.states[12]], [Malaysia.states[13],Malaysia.states[13]],[Malaysia.states[14],Malaysia.states[14]]]), {include_blank: true}) %>
+  <%= form.label :town %>
+  <%= form.select(:town, options_for_select([['Please choose state', '']])) %>
 </div>
 
 <div>
@@ -61,8 +57,75 @@
   <%= form.file_field :photos, multiple: true %>
 </div>
 
-<div>
-  <%= form.submit "Update" %>
+
+
+
+<div id="city_list" class="hide">
+  <%= Malaysia.cities.to_json %>
 </div>
 
-<% end %>
+<script>
+  $(document).ready(function() {
+
+    // Prepare list of cities from JSON
+    var cities = JSON.parse($('#city_list').text());
+
+    // Set towns when state is selected
+    $('#supporter_state').on('change', function() {
+      var current_state = this.value;
+      setTowns(cities, current_state);
+    });
+
+    // Set towns for initial state
+    setTowns(cities, '');
+  });
+
+  function setTowns(cities, state) {
+
+    // Remove any previous options
+    $('#supporter_town').empty();
+
+    // If a valid state has been selected
+    if (state.length > 0) { 
+
+      // Enable the town select
+      $('#supporter_town').removeAttr('disabled');
+
+      // Add an empty option with instructions
+      $('#supporter_town').append(
+        $('<option>', {
+          value: '',
+          text: 'Please choose city'
+        }));
+
+      // Add the options for the selected state
+      $.each(cities[state], function (index, city) {
+
+        // Skip the "All" option
+        if (city !== 'All') {
+          $('#supporter_town').append(
+            $('<option>', {
+              value: city,
+              text: city
+            }));
+        };
+      });
+
+    } else { // If no state has been selected
+
+      // Disable town select because state has not been chosen yet
+      $('#supporter_town').attr('disabled', 'disabled');
+
+      // Add an empty option with instructions
+      $('#supporter_town').append(
+        $('<option>', {
+          value: '',
+          text: 'Please choose state'
+        }));
+    }
+  }
+
+</script>
+
+
+

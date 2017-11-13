@@ -1,4 +1,11 @@
-<%= render 'form'%>
+<div>
+	<h3>Create a new account</h3>
+	<%= form_for @charity do |form| %>
+	<%= render partial: '/charities/form', object: form %>
+	<%= form.submit "Submit" %>
+	<% end %>
+</div>
+
 
 
 <% if @charity.errors.any? %> 
