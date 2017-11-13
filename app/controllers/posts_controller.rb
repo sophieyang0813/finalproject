@@ -7,9 +7,22 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index
 
-     @posts = Post.all.order(sort_column + ' ' + sort_direction)
+  def index
+    if params[:state] || params[:town]
+
+      @posts = Post.search(params[:state] ,params[:town])
+
+    else
+      @posts = Post.all.order(sort_column + ' ' + sort_direction)
+
+    end
+
+
+
+    
+    
+
      
   end
 
