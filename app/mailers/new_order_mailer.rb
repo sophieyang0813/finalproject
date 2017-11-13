@@ -1,5 +1,5 @@
 class NewOrderMailer < ApplicationMailer
-	default from: 'pairbnbtesttest@gmail.com'
+	default from: 'foodloveshareproject@gmail.com'
 
 	def order_email_to_charity(supporter_id, post_id, order_id)
 		@supporter= Supporter.find(supporter_id)
