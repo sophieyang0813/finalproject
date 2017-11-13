@@ -3,49 +3,12 @@
 
 <!-- <h1>Posts</h1> -->
 
-
 <div class="all_listings">
-
-  <div  id="tourpackages-carousel">
-    <% @posts.each_slice(3) do |posts| %>
-    
-        
-      <div class="row">
-        <% posts.each do |post| %>
-
-        <% if post.ordered_post == false &&   post.deadline_for_collection >( Time.now - (60*60*24))  %>
-        <section class="col-xs-18 col-sm-6 col-md-4">
-          <div class="thumbnail">
-          
-                      <% if post.photos? %> 
-                        <br>
-                        <div class = "txtcenter">
-                        <p class="inline txtcenter"><strong><%= post.title %></strong></p>
-                        <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                        <p class = "fontgrey"> Availability | <%= post.ordered_post %></p> 
-                            <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
-                          <br>
-                        <p>Description | <td><%= post.description %></td></p>
-                        </div>
-                      <% else %>
-                      
-                        <br>
-                          <div class = "txtcenter">
-                          <p class="inline"><strong><%= post.title %></strong></p>
-                          <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                          <p class = "fontgrey"> Availability | <%= post.ordered_post %></p> 
-                          <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
-                          <br>
-                          <p>Description | <td><%= post.description %></td></p>
-                          </div>
-                      <% end %>
 
 <!--  sort -->
 <div class="sortable_bar">
 <%= sortable "id", "Newest " %>
 </div>
-
-
 
 <!--  sort -->
 <!-- allposts -->
