@@ -1,3 +1,12 @@
-<h2>you have confirmed to pick this item on <%= @order.collection_date %> at <%= @order.collection_time %></h2>
-<h2>We will send you an email shortly with the address and contact of your supporter.</h2>
 
+
+<h1 class= "txtcntr">Order has been made successfully!</h1>
+<hr>
+
+<div class = "ordrcontainer txtcntr">
+<br><br>
+  <h2> Your supporter <%= @order.post.supporter.org_name %> looks forward to see you on <%= @order.collection_date %> at <%= @order.collection_time %></h2>
+  <h2>There will be <%= @order.post.title %> and greetings.</h2>
+  <h2>Check your email inbox! You will find your supporter contact information and pickup address. <i class="fa fa-heart" aria-hidden="true"></i></h2>
+<br><br>
+</div>

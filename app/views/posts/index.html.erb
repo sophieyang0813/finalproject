@@ -109,7 +109,7 @@
                           <div class = "inline">
                            <h2><strong><%= post.title %></strong></h2> 
                            <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+                           <p class = "fontgrey">Taken? | <%= post.ordered_post %></p>
                           <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
                           <p>Description | <%= post.description %></p>
                           <p><%= post.supporter.state %> , <%= post.supporter.town %> </p>
@@ -120,7 +120,7 @@
                         <div class = "inline">
                           <h2><strong><%= post.title %></strong></h2> 
                           <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+                           <p class = "fontgrey">Taken? | <%= post.ordered_post %></p>
                           <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
                           <p>Description | <%= post.description %></p>
                           <p><%= post.supporter.town %> | <%= post.supporter.state %></p>
@@ -135,7 +135,7 @@
                     <p>Town | <td><%= post.supporter.town %></td></p>
  -->
                     <% if current_user.class == Charity %> 
-                    <a href="/posts/<%= post.id %>/orders/new">Order</a>
+                    <button class = "btn btn-default center"><a href="/posts/<%= post.id %>/orders/new">Order</a></button>
                     <% end %>     
 
                     

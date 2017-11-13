@@ -64,9 +64,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse qsfont" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Food | Awareness', story_path %><span class="sr-only">(current)</span></li>
-            <li><%= link_to 'Community | Story', contents_path %></li>
+            <li><%= link_to 'Food | Awareness', story_path %></li>
             <li><%= link_to 'Love | Share', posts_path %></li>
+            <li><%= link_to 'Community | Story', contents_path %></li>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -109,7 +109,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>  Signed in as <%= current_user.class %></li>
-                <li><%= link_to 'My page', supporter_path(current_user) %></li>
+                <li><%= link_to 'My page', charity_path(current_user) %></li>
                 <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
               </ul>
             </li>
@@ -142,7 +142,7 @@
 
 
 	<%= yield %>
- session id? <%= session[:user_id] %>
+ <!-- session id? <#%= session[:user_id] %> -->
 
 </body>
 </html>

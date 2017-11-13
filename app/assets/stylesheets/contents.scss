@@ -3,7 +3,7 @@
     background-image: url("cabbage.jpg");
 
     /* Set a specific height */
-    min-height: 600px; 
+    min-height: 700px; 
     // height: 100%;
 
     /* Create the parallax scrolling effect */
@@ -15,7 +15,7 @@
 
 .parallax2 {
     /* The image used */
-    background-image: url("sun.jpg");
+    background-image: url("default.png");
 
     /* Set a specific height */
     min-height: 600px; 
@@ -30,7 +30,7 @@
 
 .parallax3 {
     /* The image used */
-    background-image: url("cabbage.jpg");
+    background-image: url("sun.jpg");
 
     /* Set a specific height */
     min-height: 500px; 
@@ -65,7 +65,10 @@
    // font-size: 50px;
    font-family: 'Josefin Slab', serif;
     text-align: center;
-    border-right: 1px dashed #333;
+}
+
+.vrtline {
+  border-right: 1px dashed #333;
 }
 
 
@@ -75,4 +78,54 @@ margin-left: auto!important;
 
 
 
+/////////////////////////////community/story 
 
+
+.parallax4 {
+    /* The image used */
+    background-image: url("smile.jpg");
+
+    /* Set a specific height */
+    min-height: 700px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.parallax5 {
+    /* The image used */
+    background-image: url("bakery.jpg");
+
+    /* Set a specific height */
+    min-height: 700px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+.parallax6 {
+    /* The image used */
+    background-image: url("jump.jpg");
+
+    /* Set a specific height */
+    min-height: 700px; 
+    // height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
