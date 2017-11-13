@@ -1,0 +1,23 @@
+<h1>My Orders</h1>
+<% @orders.each do |a| %>
+
+
+<section class="col-xs-18 col-sm-6 col-md-4">
+	<div class="thumbnail">
+
+		<% if a.post.photos? %> 
+		<%= link_to (image_tag a.post.photos[0].small,:class => "thum") %>
+		<% else %>
+		<%= link_to (image_tag 'default.jpg',:class => "thum" )%>  
+		<% end %>
+
+		<div class="caption">
+			<p>ordered | <%= a.post.ordered_post %></p>
+			<p>Title | <%= a.post.title %></p>
+			<p>Description | <%= a.post.description %></p>
+			<p>Pickup before | <%= a.post.deadline_for_collection.to_date %></p>
+
+			<% end %>
+		</div>
+	</div>
+</section>

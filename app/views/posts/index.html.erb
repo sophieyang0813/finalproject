@@ -40,33 +40,63 @@
                           </div>
                       <% end %>
 
+<!--  sort -->
+<div class="sortable_bar">
+<%= sortable "id", "Newest " %>
+</div>
 
-                      <% if current_user.class == Charity %> 
-                      <a href="/posts/<%= post.id %>/orders/new">Order</a>
-                      <% end %>     
 
-                      </div>
-                    </div>
-        </section>
+
+<!--  sort -->
+<!-- allposts -->
+  <div  id="container">
+    <div class="row">
+    <% @posts.each_slice(3) do |posts| %>
+
+      
+         <% posts.each do |post| %>
+         <% if post.ordered_post == false &&   post.deadline_for_collection >( Time.now - (60*60*24))  %>
+        
+                <section class="col-xs-18 col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                  
+                              <% if post.photos? %> 
+                                  <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
+                              <% else %>
+                                  <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
+                              <% end %>
+
+                              <div class="caption">
+                              <p>ordered | <td><%= post.ordered_post %></td></p>
+                              <p>Title | <td><%= post.title %></td></p>
+                              <p>Description | <td><%= post.description %></td></p>
+                              <p>Pickup before | <td><%= post.deadline_for_collection.to_date %></td></p>
+                              <% if current_user.class == Charity %> 
+                              <a href="/posts/<%= post.id %>/orders/new">Order</a>
+                              <% end %>     
+
+                              
+                              </div>
+
+                  </div>
+                </section>
          <% else %>
          <% end %>
         <% end %>
 
 
 
-
-                </div><!-- End row -->
+    <% end %>
+    </div><!-- End row -->
                
 
- <% end %>
+  
 
    
 
-    </div><!-- End container -->
-
-
-  </div>
-
+</div><!-- End container -->
+</div>
+<!-- allposts -->
 
 
 

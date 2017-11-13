@@ -1,50 +1,78 @@
 class CharitiesController < ApplicationController
 
-   before_action :set_charity,only: [:show,:edit,:update]
+ before_action :set_charity, only: [:show,:edit,:update,:orders]
 
-
-  def new
-   @charity = Charity.new 
-  end
+ def new
+  @charity = Charity.new
   
+  @states = state_options
+end
 
-  def create 
-    @charity = Charity.new(charity_params)
+def index
 
-    if @charity.save 
-      session[:user_id] = @charity.id
-      redirect_to posts_path
-    else 
-      render template: "charities/new"
-    end 
+  @charity = Charity.find(params[:charity_id])
+  @orders = @charity.orders
 
-  end 
-
-  def show
-  end
-
-  def edit
-  end
+end
 
 
-  def update
-    if @charity.update(charity_params)
-      redirect_to @charity
-    else
-      p @charity.errors
-      render :edit
-    end
+def create
+
+  @charity = Charity.new(charity_params)
+  if @charity.save
+    redirect_to root_path
+  else
+    @states = state_options
+    render "new"
   end
 
 
-  private 
-  
-  def charity_params
-    params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :town, :password, photos: [])
-  end 
 
-  def set_charity
-    @charity = Charity.find(params[:id])
+end 
+
+def show
+end
+
+
+def edit
+  @states = state_options
+end
+
+def update
+  if @charity.update(charity_params)
+    redirect_to root_path
+  else
+    p @charity.errors
+    render :edit
   end
+end
+
+def orders
+  @orders= @charity.orders
+end
+
+
+private 
+
+def charity_params
+  params.require(:charity).permit(:last_name, :first_name, :email, :charity_type, :charity_name, :address, :phone_num, :state, :town, :password, photos: [])
+end 
+
+def set_charity
+  @charity = Charity.find(params[:id])
+end
+
+def state_options
+  states = []
+  Malaysia.states.each do |s|
+    states.push([s,s])
+  end
+  return states.sort!
+end
+
+
+def set_charity
+  @charity = Charity.find(params[:id])
+end
 
 end 

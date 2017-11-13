@@ -1,5 +1,11 @@
-<!-- <#%= render 'form'%>
- -->
+
+<div>
+	<h3>Create a new account</h3>
+	<%= form_for @supporter do |form| %>
+	<%= render partial: '/supporters/form', object: form %>
+	<%= form.submit "Submit" %>
+	<% end %>
+</div>
 
 
 <br>
@@ -26,9 +32,6 @@
    
 
 </div>
-
-
-
 
 
 
