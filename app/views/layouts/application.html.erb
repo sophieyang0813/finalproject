@@ -67,7 +67,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'New Post', new_post_path %></li>
-                <li><%= link_to 'My Post', myposts_path %></li>
+                <li><%= link_to 'My Post', supporter_posts_path(current_user) %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -114,7 +114,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order<span class="caret"></span></a>
               <ul class="dropdown-menu">
 
-                <li><%= link_to 'My Order',  myorders_path %></li>
+                <li><%= link_to 'My Order',  charity_orders_path(current_user) %></li>
 
               </ul>
             </li>

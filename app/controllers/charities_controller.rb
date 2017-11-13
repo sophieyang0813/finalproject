@@ -3,6 +3,15 @@ class CharitiesController < ApplicationController
    before_action :set_charity,only: [:show,:edit,:update]
 
 
+
+  def index
+
+    @charity = Charity.find(params[:charity_id])
+    @orders = @charity.orders
+
+  end
+
+
   def new
    @charity = Charity.new 
   end

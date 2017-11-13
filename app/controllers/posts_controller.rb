@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def index
 
      @posts = Post.all.order(sort_column + ' ' + sort_direction)
-
+     
   end
 
   # GET /posts/1

@@ -2,7 +2,9 @@ class SupportersController < ApplicationController
   before_action :set_supporter,only: [:show,:edit,:update]
 
   def index
-  @supporters = Supporter.all
+    @supporter = Supporter.find(params[:supporter_id])
+    
+    @posts = @supporter.posts
   end 
 
   def new
