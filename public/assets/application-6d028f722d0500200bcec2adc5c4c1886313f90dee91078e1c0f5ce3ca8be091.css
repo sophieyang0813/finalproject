@@ -1,0 +1,327 @@
+/* line 1, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax {
+  /* The image used */
+  background-image: url("cabbage.jpg");
+  /* Set a specific height */
+  min-height: 700px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 16, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax2 {
+  /* The image used */
+  background-image: url("default.png");
+  /* Set a specific height */
+  min-height: 600px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 31, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax3 {
+  /* The image used */
+  background-image: url("sun.jpg");
+  /* Set a specific height */
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 46, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.ftwhite {
+  color: white;
+}
+
+/* line 50, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.inline {
+  display: inline;
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+}
+
+/* line 57, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* line 63, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.sminline {
+  display: inline;
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+}
+
+/* line 70, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.vrtline {
+  border-right: 1px dashed #333;
+}
+
+/* line 75, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.left {
+  margin-left: auto !important;
+}
+
+/* line 84, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax4 {
+  /* The image used */
+  background-image: url("smile.jpg");
+  /* Set a specific height */
+  min-height: 700px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 100, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax5 {
+  /* The image used */
+  background-image: url("bakery.jpg");
+  /* Set a specific height */
+  min-height: 700px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 118, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/contents.scss */
+.parallax6 {
+  /* The image used */
+  background-image: url("jump.jpg");
+  /* Set a specific height */
+  min-height: 700px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* line 5, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.ordrcntr {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+/* line 13, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.ordrcontainer {
+  margin: auto;
+  margin-top: 150;
+  padding-bottom: 200;
+  width: 60%;
+  border: 3px solid rgba(192, 192, 192, 0.1);
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 8px;
+  /*font-family: 'Ribeye Marrow', cursive*/
+  font-family: 'Josefin Slab', serif;
+  height: 250;
+  text-align: center;
+}
+
+/* line 28, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.inline {
+  display: inline;
+}
+
+/* line 32, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.txtcntr {
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+}
+
+/* line 38, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.calendarcntr {
+  margin: auto;
+  width: 80%;
+}
+
+/* line 44, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/orders.scss */
+.orderbtn {
+  /* height:50px;
+   width: 100px;*/
+  font-size: 22px;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-family: 'Josefin Slab', serif;
+}
+/* line 1, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/posts.scss */
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+/* line 9, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/posts.scss */
+.vrtline {
+  border-right: 0.5px solid #333;
+}
+
+/* line 13, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/posts.scss */
+.inline2 {
+  display: inline;
+  font-family: 'Josefin Slab', serif;
+  text-align: center;
+}
+
+/* line 22, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/posts.scss */
+.postcenter {
+  margin: auto;
+  margin-top: 150;
+  padding-bottom: 200;
+  width: 60%;
+  border: 3px solid rgba(192, 192, 192, 0.1);
+  background-color: rgba(192, 192, 192, 0);
+  border-radius: 8px;
+  /*font-family: 'Ribeye Marrow', cursive*/
+  font-family: 'Josefin Slab', serif;
+  height: 250;
+  text-align: center;
+}
+
+/* line 37, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/posts.scss */
+.postbox {
+  /* height:50px;
+   width: 100px;*/
+  font-size: 22px;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-family: 'Josefin Slab', serif;
+}
+.sgnupcenter {
+    margin: auto;
+    margin-top: 150;
+    padding-bottom:200;
+    width: 60%;
+    border: 3px solid rgba(192,192,192,0.1);
+    background-color: rgba(192,192,192,0.3);
+    border-radius: 8px;
+    /*font-family: 'Ribeye Marrow', cursive*/;
+    font-family: 'Josefin Slab', serif;
+    height:250;
+    text-align: center;
+
+}
+
+
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+body {
+    background: url("vege.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
+    height : 100%;
+    overflow: auto;
+    min-width: 1400px !important;
+}
+
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+}
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 18, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.container {
+  width: 80%;
+}
+
+/* line 27, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.sgnupbox {
+  /* height:50px;
+   width: 100px;*/
+  font-size: 22px;
+  opacity: 0.5;
+  border-radius: 10px;
+  font-family: 'Josefin Slab', serif;
+}
+
+/* line 36, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.barcodefont {
+  font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+/* line 41, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.qsfont {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* line 46, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.jsfont {
+  font-family: 'Josefin Slab', serif;
+}
+
+/* line 50, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.bcfontsm {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  display: inline;
+  font-size: 20px;
+}
+
+/* line 56, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.inline {
+  display: inline;
+  font-size: 18px;
+}
+
+/* line 62, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.txtcenter {
+  text-align: center;
+}
+
+/* line 66, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.fontgrey {
+  color: #00000047;
+}
+
+/*postshow*/
+/* line 73, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.carousel {
+  width: 30%;
+  /*サイズ指定*/
+  margin: auto;
+}
+
+/* line 77, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.carousel img {
+  width: 100%;
+}
+
+/* line 81, /Users/sophieyang/Desktop/finalproject/app/assets/stylesheets/application.scss */
+.container_post {
+  padding-right: 50px;
+  padding-left: 50px;
+}
