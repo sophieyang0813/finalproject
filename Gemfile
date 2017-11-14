@@ -13,9 +13,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'##datepicker
 
 
 
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'##datepicker 
-
 
 #This gem provides a simple and extremely flexible way to upload files from Ruby applications.
 gem 'carrierwave', '~> 1.0'
@@ -68,6 +65,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+group :production do 
+  # gem 'pg', '~> 0.18' this means only in production; those gems outside production group are for all three 
+  gem 'rails_12factor', '~> 0.0.2'
+  #use unicorn as app server 
+  gem 'unicorn'
+end 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
