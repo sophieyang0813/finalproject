@@ -72,11 +72,12 @@
 
         </script>
 
-  <!--  sort -->
-
+<!--  sort -->
+<div class="sort_table">
   <div class="sortable_bar col-xs-2">
     <button class = "btn btn-default" style ="text-decoration: none"><%= sortable "id", "Sort by latest post"%></button>
   </div>
+<!--  sort -->
 <!--  render 'search_form' -->
   <div class ="col-xs-10">
   <%= form_tag(posts_path, class: 'form-inline', :method => "get") do %>
@@ -85,15 +86,12 @@
     <%= submit_tag "Search", class:'btn btn-secondary', style:'display: inline;'%>
   <% end %>
   </div>
+<!--  render 'search_form' -->
+
+</div>
 
 
 <div class= "col-xs-12"><hr></div>
-
-
-
-  
-
-<!--  sort -->
 <!-- allposts -->
   <div  id="container">
     <div class="row">
@@ -109,10 +107,9 @@
                           <div class = "inline">
                            <h2><strong><%= post.title %></strong></h2> 
                            <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                           <p class = "fontgrey">Taken? | <%= post.ordered_post %></p>
                           <%= link_to (image_tag post.photos[0].small,:class => "thum"),post_path(post) %>
                           <p>Description | <%= post.description %></p>
-                          <p><%= post.supporter.state %> , <%= post.supporter.town %> </p>
+                          <p><%= post.supporter.state %> | <%= post.supporter.town %> </p>
                         </div>
 
                     <% else %>
@@ -120,10 +117,9 @@
                         <div class = "inline">
                           <h2><strong><%= post.title %></strong></h2> 
                           <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-                           <p class = "fontgrey">Taken? | <%= post.ordered_post %></p>
                           <%= link_to (image_tag 'default.jpg',:class => "thum" ),post_path(post)%>  
                           <p>Description | <%= post.description %></p>
-                          <p><%= post.supporter.town %> | <%= post.supporter.state %></p>
+                          <p><%= post.supporter.state %> | <%= post.supporter.town %></p>
                         </div>
                     <% end %>
 
