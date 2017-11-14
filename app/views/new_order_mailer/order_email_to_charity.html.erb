@@ -6,7 +6,7 @@
 <body>
 	<h1>Congratulations! We have reserved <%= @post.title %> for you</h1>
 	<p>
-		You can see details of new order here: <%= post_order_url(@post, @order) %>
+		You can see details of new order here: <%= charity_orders_url(@order.charity_id) %>
 		<p>
 			You would like to pick up your food on <%= @order.collection_date %> at <%= @order.collection_time %>.
 			If you would like to change the collection date and time, you can contact the supporter: <%= @supporter.email %> or <%=@supporter.phone_num %>
