@@ -20,9 +20,9 @@
 		    <% if @post.photos?  %>
 
         <div class = "inline">
-           <h2><strong><%= post.title %></strong></h2> 
-           <p>Pickup before | <%= post.deadline_for_collection.to_date %></p>
-           <p class = "fontgrey">Availability | <%= post.ordered_post %></p>
+           <h2><strong><%= @post.title %></strong></h2> 
+           <p>Pickup before | <%= @post.deadline_for_collection.to_date %></p>
+           <p class = "fontgrey">Availability | <%= @post.ordered_post %></p>
   		    <%= image_tag @post.photos[0].url %>
   		 
   		    <% @post.photos.shift %>
